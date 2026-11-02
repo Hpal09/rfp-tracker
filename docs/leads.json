@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-02T02:31:02+00:00",
+  "generated_at": "2026-11-02T03:24:36+00:00",
   "about": "Leads only. Each item must be verified on the buyer's official page before it is treated as a tender.",
   "source_health": [
     {
       "source": "sam_gov",
       "status": "OK",
-      "items": 1,
+      "items": 665,
       "kept": 1,
-      "note": "2 calls, 1 notices posted, 0 award/other skipped"
+      "note": "1 calls, 850 notices posted, 185 award/other skipped"
     },
     {
       "source": "grants_gov",
@@ -35,7 +35,21 @@
       "status": "OK",
       "items": 0,
       "kept": 0,
-      "note": ""
+      "note": "0 feeds OK"
+    },
+    {
+      "source": "pages",
+      "status": "OK",
+      "items": 483,
+      "kept": 0,
+      "note": "2 pages OK"
+    },
+    {
+      "source": "austender",
+      "status": "FAILED",
+      "items": 0,
+      "kept": 0,
+      "note": "all feeds failed: AusTender (HTTP 403)"
     }
   ],
   "counts": {
