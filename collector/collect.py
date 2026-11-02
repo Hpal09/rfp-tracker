@@ -458,19 +458,22 @@ def main(argv=None):
     return 0
 
 
+TRACKER_URL = "https://claude.ai/artifact/4DZuEfmBejjTNLyimLxYv7"
+
+
 def render_html(doc: dict) -> str:
+    """A small status page only. The Engage RFP tracker is the one place people work from."""
     esc = lambda s: (str(s).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;"))
-    rows = "".join(
-        f"<tr><td>{'NEW ' if l['new_today'] else ''}{esc(l['kind'])}</td><td><a href=\"{esc(l['url'])}\">{esc(l['title'])}</a></td>"
-        f"<td>{esc(l['buyer'])}</td><td>{esc(l['region'])}</td><td>{esc(l['posted'])}</td><td>{esc(l['closing'])}</td>"
-        f"<td>{esc(', '.join(l.get('matched', [])))}</td><td>{esc(l['source'])}</td></tr>" for l in doc["leads"])
     health = "".join(f"<li>{esc(h['source'])}: {esc(h['status'])} ({h['kept']} kept of {h['items']}) {esc(h['note'])}</li>" for h in doc["source_health"])
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Engage RFP leads</title><meta name="robots" content="noindex">
-<style>body{{font:14px/1.4 system-ui,sans-serif;margin:16px}}table{{border-collapse:collapse;width:100%}}td,th{{border:1px solid #ccc;padding:4px 6px;text-align:left;vertical-align:top}}</style></head>
-<body><h1>Engage RFP leads</h1><p>Generated {esc(doc['generated_at'])}. {esc(doc['about'])} Machine-readable: <a href="leads.json">leads.json</a>.</p>
-<h2>Sources</h2><ul>{health}</ul><h2>Leads ({doc['counts']['published']}, {doc['counts']['new_today']} new today)</h2>
-<div style="overflow-x:auto"><table><tr><th>Type</th><th>Title</th><th>Buyer</th><th>Region</th><th>Posted</th><th>Closes</th><th>Matched</th><th>Source</th></tr>{rows}</table></div></body></html>"""
+<title>Engage collector status</title><meta name="robots" content="noindex">
+<style>body{{font:15px/1.5 system-ui,sans-serif;margin:16px;max-width:760px}}</style></head>
+<body><h1>Engage RFP collector: status</h1>
+<p><strong>This is not a tracker.</strong> It is the morning feed that Claude's RFP Finder reads. All work happens in the
+<a href="{TRACKER_URL}">Engage RFP tracker</a>.</p>
+<p>Last run {esc(doc['generated_at'])} (UTC): {doc['counts']['published']} leads in the feed, {doc['counts']['new_today']} new.
+Feed file: <a href="leads.json">leads.json</a>.</p>
+<h2>Sources</h2><ul>{health}</ul></body></html>"""
 
 
 if __name__ == "__main__":

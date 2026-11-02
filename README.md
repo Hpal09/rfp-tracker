@@ -3,7 +3,7 @@
 Gathers tender leads and early signals for Engage by Disrupt every morning and publishes one list:
 
 - **Machine-readable:** `docs/leads.json` (GitHub Pages: `https://hpal09.github.io/rfp-tracker/leads.json`)
-- **Human-readable:** `docs/index.html` (same site)
+- **Status page:** `docs/index.html` (same site). Not a tracker: people work only in the Engage RFP tracker (https://claude.ai/artifact/4DZuEfmBejjTNLyimLxYv7)
 
 Claude's scheduled RFP runs read `leads.json`, treat every item as a **lead only**, and verify it on the buyer's official page before anything reaches the Engage RFP tracker's Pipeline.
 

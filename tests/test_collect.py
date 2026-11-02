@@ -74,7 +74,7 @@ def test_sources_and_merge(monkeypatch, tmp_path):
     assert not any(p["new_today"] for p in pub2)
     html = c.render_html({"generated_at": "x", "about": "y", "source_health": health,
                           "counts": {"published": len(pub), "new_today": 0}, "leads": pub})
-    assert "Interactive Wayfinding Maps" in html
+    assert "not a tracker" in html and c.TRACKER_URL in html
 
 
 def test_sam_skipped_without_key(monkeypatch):
