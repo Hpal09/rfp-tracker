@@ -454,8 +454,8 @@ class _Links(__import__("html.parser").parser.HTMLParser):
 
 
 def _meaningful(text: str) -> bool:
-    # a bare reference number ("35356533", "#26-114") says nothing about the tender: use the row text
-    return len(text) >= 8 and not GENERIC_LINK.match(text) and not re.fullmatch(r"[\d\s#./:-]+", text)
+    # a bare reference ("35356533", "745-26-900-PS": one word with digits) says nothing about the tender: use the row text
+    return len(text) >= 8 and not GENERIC_LINK.match(text) and not re.fullmatch(r"\S*\d\S*", text)
 
 
 def src_pages(http: Http, cfg: list, today: dt.date):

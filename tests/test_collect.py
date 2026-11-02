@@ -318,7 +318,7 @@ def test_pages_unclosed_cells_do_not_leak_between_rows():
 
 def test_pages_number_link_uses_row_text():
     html = """<table><tr><td><a href="/AT/ExternalTenderDetails.htm?id=35356533">35356533</a></td>
-      <td>Wayfinding Signage Supplier Panel</td><td>Auckland Transport</td><td>6 Nov 2026</td></tr>
+      <td>745-26-900-PS Wayfinding Signage Supplier Panel</td><td>Auckland Transport</td><td>6 Nov 2026</td></tr>
       <tr><td><a href="/X/ExternalTenderDetails.htm?id=1">35350001</a></td><td>Road resurfacing</td></tr></table>"""
     class H:
         def get(self, url, check_robots=False, **kw):
