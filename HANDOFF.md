@@ -48,8 +48,9 @@ Run workflow has two optional inputs for one-off SAM checks: `sam_days_back` (up
    not in this repo; ask Mark) and add each buyer's public bids page to `sources.pages` (or its bids RSS, e.g.
    CivicPlus `/RSS.aspx`, to `sources.rss`). Check robots.txt; skip login portals. Then measure: how many of the
    45 buyers are now watched.
-2. Google Alerts RSS: Mark switches the 15 alerts on rfptracker11@gmail.com to RSS delivery; add each URL to
-   `sources.rss` with `kind: alert`. Then A2 no longer needs to read Google Alerts by email.
+2. CLOSED 2 Nov: Google Alerts stay on email; the A2 scheduled Claude task reads them. google.com/robots.txt has
+   `Disallow: /alerts/` (feeds included; checked with the collector's own robots check), so this repo must not read
+   Alerts RSS. Do not ask Mark to switch delivery. The account now has 86 alerts, not 15.
 3. DONE 3 Nov: page watcher now reads the table row / list item around each link. A row whose link only says
    "View" / "Details" / "Download" becomes a lead titled by the row text; each row gives ONE lead (its first
    meaningful link), and row text (closing date, addenda, buyer) goes into the summary and is keyword-matched.
