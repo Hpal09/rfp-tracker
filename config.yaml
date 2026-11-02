@@ -136,6 +136,17 @@ sources:
       url: "https://www.gets.govt.nz/FutureProcurementOpportunitiesIndex.htm"
       region: New Zealand
       kind: forecast
+    # US / AU buyers from the test list (claude/rfp-test-list-data.csv): their own public bids pages.
+    - {name: University of Arkansas at Little Rock, url: "https://ualr.edu/procurement/bids", region: USA (AR)}
+    - {name: Cuyahoga Community College (Tri-C), url: "https://www.tri-c.edu/administrative-departments/procurement/current-opportunitiesawards.html", region: USA (OH)}
+    - {name: Merced Community College District, url: "https://www.mccd.edu/about-merced-college/divisions/admin-services/purchasing/bids/", region: USA (CA)}
+    - {name: County of Marin, url: "https://www.marincounty.gov/contracting-opportunities", region: USA (CA)}
+    - {name: Eastern Kentucky University, url: "https://purchasing.eku.edu/solicitations", region: USA (KY)}
+    - {name: Washington County MN, url: "https://washingtoncountymn.gov/bids.aspx", region: USA (MN)}
+    - {name: Village of Western Springs, url: "https://www.wsprings.com/bids.aspx", region: USA (IL)}
+    - {name: APA planning RFP listings, url: "https://planning.org/consultants/rfp/", region: USA}
+    - {name: Shire of East Pilbara, url: "https://www.eastpilbara.wa.gov.au/tenders", region: Australia (WA)}
+    - {name: Bellingen Shire Council, url: "https://www.bellingen.nsw.gov.au/Business/Doing-business-with-us/Tenders-and-Quotations", region: Australia (NSW)}
 
   # AusTender (Australian Government) official RSS of current Approaches to Market.
   # The feed address is looked up each run from its data.gov.au record.
