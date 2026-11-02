@@ -14,6 +14,23 @@
    "code:541370"
   ],
   "first_seen": "2026-11-02",
+  "new_today": false
+ },
+ "sam_gov-2fc74cf264053bf4": {
+  "id": "sam_gov-2fc74cf264053bf4",
+  "source": "sam_gov",
+  "kind": "tender",
+  "title": "9905--Interior Wayfinding",
+  "buyer": "VETERANS AFFAIRS, DEPARTMENT OF.VETERANS AFFAIRS, DEPARTMENT OF.241-NETWORK CONTRACT OFFICE 01 (36C241)",
+  "region": "USA (federal)",
+  "url": "https://sam.gov/opp/01816f482e7a4f4ba705ce8db9e49de0/view",
+  "posted": "2026-09-15",
+  "closing": "2026-09-21",
+  "summary": "Combined Synopsis/Solicitation; sol. 36C24126Q0639; NAICS 339950; PSC 9905; set-aside Service-Disabled Veteran-Owned Small Business (SDVOSB) Set-Aside (FAR 19.14)",
+  "matched": [
+   "wayfinding"
+  ],
+  "first_seen": "2026-11-02",
   "new_today": true
  }
 }

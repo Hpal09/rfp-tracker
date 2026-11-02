@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-02T02:24:00+00:00",
+  "generated_at": "2026-11-02T02:26:03+00:00",
   "about": "Leads only. Each item must be verified on the buyer's official page before it is treated as a tender.",
   "source_health": [
     {
       "source": "sam_gov",
       "status": "OK",
-      "items": 679,
+      "items": 1,
       "kept": 1,
       "note": ""
     },
@@ -28,7 +28,7 @@
       "status": "OK",
       "items": 0,
       "kept": 0,
-      "note": "17 councils OK; failed: chicago (HTTP 500), cityofsacramento (HTTP 500), stpaul (ConnectionError)"
+      "note": "18 councils OK; failed: chicago (HTTP 500), cityofsacramento (HTTP 500)"
     },
     {
       "source": "rss",
@@ -40,7 +40,7 @@
   ],
   "counts": {
     "published": 1,
-    "new_today": 1
+    "new_today": 0
   },
   "leads": [
     {
@@ -58,7 +58,7 @@
         "code:541370"
       ],
       "first_seen": "2026-11-02",
-      "new_today": true
+      "new_today": false
     }
   ]
 }
