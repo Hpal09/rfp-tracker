@@ -345,24 +345,39 @@ def src_legistar(http: Http, cfg: dict, today: dt.date):
     return out, note
 
 
-def src_rss(http: Http, cfg: list, today: dt.date) -> list[dict]:
-    out = []
+DC = "{http://purl.org/dc/elements/1.1/}"
+ATOM = "{http://www.w3.org/2005/Atom}"
+
+
+def src_rss(http: Http, cfg: list, today: dt.date):
+    """RSS or Atom feeds (buyer bid feeds, Google Alerts RSS...). One bad feed doesn't stop the rest."""
+    out, failed = [], []
     for feed in cfg or []:
-        r = http.get(feed["url"], check_robots=True)
-        root = ET.fromstring(r.content)
-        items = root.findall(".//item") or root.findall(".//{http://www.w3.org/2005/Atom}entry")
+        try:
+            r = http.get(feed["url"], check_robots=True)
+            root = ET.fromstring(r.content)
+        except Exception as e:
+            failed.append(f"{feed.get('name', feed['url'])} ({_http_reason(e)})")
+            continue
+        items = root.findall(".//item") or root.findall(f".//{ATOM}entry")
         for it in items:
-            g = lambda tag: (it.findtext(tag) or it.findtext("{http://www.w3.org/2005/Atom}" + tag) or "")
+            g = lambda tag: (it.findtext(tag) or it.findtext(ATOM + tag) or "")
             link = g("link")
             if not link:
-                le = it.find("{http://www.w3.org/2005/Atom}link")
+                le = it.find(f"{ATOM}link")
                 link = le.get("href", "") if le is not None else ""
+            if "google.com/url" in link:  # Google Alerts wraps the real link
+                link = urllib.parse.parse_qs(urllib.parse.urlparse(link).query).get("url", [link])[0]
             title = re.sub(r"<[^>]+>", "", g("title"))
-            out.append(make("rss", link or title, title=title, buyer=feed.get("name", ""), url=link,
-                posted=g("pubDate") or g("published") or g("updated"),
+            out.append(make("rss", link or title, title=title,
+                buyer=it.findtext(DC + "creator") or feed.get("name", ""), url=link,
+                posted=g("pubDate") or g("published") or g("updated") or it.findtext(DC + "date"),
                 region=feed.get("region", "Not stated"), kind=feed.get("kind", "alert"),
                 summary=re.sub(r"<[^>]+>", " ", g("description") or g("content"))))
-    return out
+    n = len(cfg or [])
+    if n and len(failed) == n:
+        raise RuntimeError("all feeds failed: " + ", ".join(failed[:6]))
+    return out, f"{n - len(failed)} feeds OK" + (f"; failed: {', '.join(failed)}" if failed else "")
 
 
 class _Links(__import__("html.parser").parser.HTMLParser):
@@ -385,22 +400,56 @@ def src_pages(http: Http, cfg: list, today: dt.date):
     (keyword filtering happens in run()). robots.txt is checked for every page."""
     out, failed = [], []
     for pg in cfg or []:
-        try:
-            r = http.get(pg["url"], check_robots=True)
-        except Exception as e:
-            failed.append(f"{pg.get('name', pg['url'])} ({_http_reason(e)})")
-            continue
-        parser = _Links(); parser.feed(r.text)
-        for href, text in parser.links:
-            if not href or len(text) < 8 or href.startswith(("mailto:", "javascript:", "#")):
-                continue
-            link = urllib.parse.urljoin(pg["url"], href)
-            out.append(make("page", link + "|" + text, title=text, buyer=pg.get("name", ""), url=link,
-                            region=pg.get("region", "Not stated"), kind=pg.get("kind", "tender"),
-                            summary=f"Link on {pg.get('name', '')} bids page {pg['url']}"))
+        # A url with {page} is a paged list: pages 1..max_pages, stopping when a page adds nothing new.
+        pages = range(1, int(pg.get("max_pages", 1)) + 1) if "{page}" in pg["url"] else [None]
+        seen_links = set()
+        for n in pages:
+            url = pg["url"].replace("{page}", str(n)) if n else pg["url"]
+            try:
+                r = http.get(url, check_robots=True)
+            except Exception as e:
+                failed.append(f"{pg.get('name', pg['url'])} ({_http_reason(e)})")
+                break
+            parser = _Links(); parser.feed(r.text)
+            added = 0
+            for href, text in parser.links:
+                if not href or len(text) < 8 or href.startswith(("mailto:", "javascript:", "#")):
+                    continue
+                link = urllib.parse.urljoin(url, href)
+                if link in seen_links:
+                    continue
+                seen_links.add(link); added += 1
+                out.append(make("page", link + "|" + text, title=text, buyer=pg.get("name", ""), url=link,
+                                region=pg.get("region", "Not stated"), kind=pg.get("kind", "tender"),
+                                summary=f"Link on {pg.get('name', '')} page {pg['url'].replace('{page}', '1')}"))
+            if n and not added:
+                break
     if failed and len(failed) == len(cfg or []):
         raise RuntimeError("all pages failed: " + ", ".join(failed[:6]))
     return out, f"{len(cfg or []) - len(failed)} pages OK" + (f"; failed: {', '.join(failed)}" if failed else "")
+
+
+def src_austender(http: Http, cfg: dict, today: dt.date):
+    """AusTender's official RSS feed of current Approaches to Market. The feed address is
+    looked up each run from its data.gov.au record (official CKAN API), so a moved feed is found."""
+    url = cfg.get("feed_url", "").strip()
+    if not url:
+        meta = http.get("https://data.gov.au/data/api/3/action/package_show",
+                        params={"id": cfg.get("dataset", "efe713db-f91e-4708-9edb-e3d3e321cfee")}).json()
+        res = (meta.get("result") or {}).get("resources") or []
+        rss = [x for x in res if "rss" in (x.get("format") or "").lower() or "rss" in (x.get("url") or "").lower()]
+        if not rss:
+            raise RuntimeError("no RSS resource in the data.gov.au record")
+        url = rss[0]["url"]
+    items, note = src_rss(http, [{"name": "AusTender", "url": url, "region": "Australia (federal)", "kind": "tender"}], today)
+    if note.startswith("0 feeds"):
+        raise RuntimeError(f"AusTender feed failed: {note}")
+    for it in items:
+        it["source"] = "austender"
+        it["id"] = lead_id("austender", it["url"] or it["title"])
+        if it["buyer"] == "AusTender":
+            it["buyer"] = "Not stated (AusTender)"
+    return items, f"feed {url}"
 
 
 SOURCES = {
@@ -410,6 +459,7 @@ SOURCES = {
     "legistar": src_legistar,
     "rss": src_rss,
     "pages": src_pages,
+    "austender": src_austender,
 }
 
 

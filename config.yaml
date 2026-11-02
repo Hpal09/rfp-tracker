@@ -126,7 +126,22 @@ sources:
   # robots.txt is checked before every fetch. Public pages only: never a login portal
   # (Bonfire, BidNet, TenderLink, OpenGov, VendorPanel buyer portals etc.).
   # Each entry: {name: ..., url: ..., region: ...}
-  pages: []
+  pages:
+    # NZ: GETS public "Current tenders" list (no login needed to read it), all pages.
+    - name: GETS (NZ) current tenders
+      url: "https://www.gets.govt.nz/ExternalIndex.htm?page={page}&orderBy=date"
+      max_pages: 25
+      region: New Zealand
+    - name: GETS (NZ) future procurement opportunities
+      url: "https://www.gets.govt.nz/FutureProcurementOpportunitiesIndex.htm"
+      region: New Zealand
+      kind: forecast
+
+  # AusTender (Australian Government) official RSS of current Approaches to Market.
+  # The feed address is looked up each run from its data.gov.au record.
+  austender:
+    enabled: true
+    dataset: efe713db-f91e-4708-9edb-e3d3e321cfee
 
   # OpenGov public listings (approach from cliwant/mcp-sam-gov). OFF until
   # OpenGov's terms have been checked (see the plan).

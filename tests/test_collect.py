@@ -59,6 +59,8 @@ def test_sources_and_merge(monkeypatch, tmp_path):
     })
     cfg = json.loads(json.dumps(CFG))
     cfg["sources"]["legistar"]["clients"] = ["seattle"]
+    cfg["sources"]["pages"] = []
+    cfg["sources"]["austender"] = {"enabled": False}
     cfg["sources"]["rss"] = [{"name": "Example City bids", "url": "https://example.gov/bids/rss", "region": "USA (TX)", "kind": "tender"}]
     found, health = c.run(cfg, TODAY, http=http)
     titles = {f["title"] for f in found}
@@ -217,3 +219,52 @@ def test_pages_finds_matching_links_and_respects_robots(monkeypatch):
     assert [f["url"] for f in found] == ["https://purchasing.example.edu/bids/123"]
     assert found[0]["buyer"] == "Example University"
     assert "1 pages OK" in health[0]["note"] and "Blocked City" in health[0]["note"]
+
+
+def test_paged_list_stops_when_nothing_new():
+    pages = {1: '<a href="/A/ExternalTenderDetails.htm?id=1">Wayfinding signage design - Tauranga</a>',
+             2: '<a href="/A/ExternalTenderDetails.htm?id=2">Roading renewals</a>',
+             3: '<a href="/A/ExternalTenderDetails.htm?id=2">Roading renewals</a>'}
+    calls = []
+    class H:
+        def get(self, url, check_robots=False, **kw):
+            n = int(url.split("page=")[1].split("&")[0]); calls.append(n)
+            r = FakeResp(); r.text = pages[n]; return r
+    cfg = [{"name": "GETS", "url": "https://www.gets.govt.nz/ExternalIndex.htm?page={page}&orderBy=date", "max_pages": 25}]
+    items, note = c.src_pages(H(), cfg, TODAY)
+    assert calls == [1, 2, 3]                       # page 3 added nothing new: stop
+    assert items[0]["url"] == "https://www.gets.govt.nz/A/ExternalTenderDetails.htm?id=1"
+
+
+def test_austender_finds_feed_via_data_gov_au_and_reads_it():
+    feed = b"""<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel>
+      <item><title>ATM 2026-114 Wayfinding Signage Strategy</title><link>https://www.tenders.gov.au/Atm/Show/abc</link>
+      <dc:creator>Department of Defence</dc:creator><pubDate>Mon, 02 Nov 2026 07:00:00 +1100</pubDate></item>
+      <item><title>Catering services</title><link>https://www.tenders.gov.au/Atm/Show/def</link></item></channel></rss>"""
+    class H:
+        def get(self, url, params=None, check_robots=False, **kw):
+            if "package_show" in url:
+                return FakeResp({"result": {"resources": [{"format": "RSS", "url": "https://www.tenders.gov.au/public_data/rss/rss.xml"}]}})
+            assert url == "https://www.tenders.gov.au/public_data/rss/rss.xml" and check_robots
+            return FakeResp(content=feed)
+    found, health = c.run({**CFG, "sources": {"austender": CFG["sources"]["austender"]}}, TODAY,
+                          http=H(), fetchers={"austender": c.src_austender})
+    assert health[0]["status"] == "OK", health
+    assert [f["title"] for f in found] == ["ATM 2026-114 Wayfinding Signage Strategy"]
+    assert found[0]["buyer"] == "Department of Defence" and found[0]["source"] == "austender"
+
+
+def test_rss_one_bad_feed_and_google_alerts_links():
+    good = b"""<feed xmlns="http://www.w3.org/2005/Atom"><entry><title>City issues RFP for &lt;b&gt;wayfinding&lt;/b&gt; plan</title>
+      <link href="https://www.google.com/url?rct=j&amp;url=https://city.example.gov/bids/42&amp;ct=ga"/>
+      <updated>2026-11-02T01:00:00Z</updated></entry></feed>"""
+    class H:
+        def get(self, url, check_robots=False, **kw):
+            if "bad" in url:
+                raise PermissionError("robots")
+            return FakeResp(content=good)
+    items, note = c.src_rss(H(), [{"name": "GA wayfinding", "url": "https://www.google.com/alerts/feeds/1/2"},
+                                  {"name": "Bad", "url": "https://bad.example/rss"}], TODAY)
+    assert items[0]["url"] == "https://city.example.gov/bids/42"
+    assert items[0]["title"] == "City issues RFP for wayfinding plan"
+    assert "1 feeds OK" in note and "Bad" in note
