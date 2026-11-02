@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-02T01:44:58+00:00",
+  "generated_at": "2026-11-02T02:24:00+00:00",
   "about": "Leads only. Each item must be verified on the buyer's official page before it is treated as a tender.",
   "source_health": [
     {
       "source": "sam_gov",
-      "status": "SKIPPED",
-      "items": 0,
-      "kept": 0,
-      "note": "SKIPPED: no SAM_API_KEY secret yet"
+      "status": "OK",
+      "items": 679,
+      "kept": 1,
+      "note": ""
     },
     {
       "source": "grants_gov",
@@ -28,7 +28,7 @@
       "status": "OK",
       "items": 0,
       "kept": 0,
-      "note": "18 councils OK; failed: chicago (HTTP 500), cityofsacramento (HTTP 500)"
+      "note": "17 councils OK; failed: chicago (HTTP 500), cityofsacramento (HTTP 500), stpaul (ConnectionError)"
     },
     {
       "source": "rss",
@@ -39,8 +39,26 @@
     }
   ],
   "counts": {
-    "published": 0,
-    "new_today": 0
+    "published": 1,
+    "new_today": 1
   },
-  "leads": []
+  "leads": [
+    {
+      "id": "sam_gov-d1537eb7844945b5",
+      "source": "sam_gov",
+      "kind": "forecast",
+      "title": "Sources Sought for Architect-Engineer Indefinite Delivery Contract in Support of Geospatial Services for USACE Great Lakes and Ohio River Division",
+      "buyer": "DEPT OF DEFENSE.DEPT OF THE ARMY.US ARMY CORPS OF ENGINEERS.ENGINEER DIVISION GREAT LAKES AND OHIO.ENDIST HUNTINGTON.W072 ENDIST HUNTINGTON",
+      "region": "USA (federal)",
+      "url": "https://sam.gov/opp/39ba55bf1f8f4391ad08be66efd43d77/view",
+      "posted": "2026-10-30",
+      "closing": "2026-11-13",
+      "summary": "Sources Sought; sol. W9123727X1CVG; NAICS 541370; PSC C219; set-aside none",
+      "matched": [
+        "code:541370"
+      ],
+      "first_seen": "2026-11-02",
+      "new_today": true
+    }
+  ]
 }
