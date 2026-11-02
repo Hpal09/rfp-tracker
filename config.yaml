@@ -1,0 +1,124 @@
+# Engage RFP lead collector: settings.
+# Everything here is a LEAD source. Claude's daily runs verify each lead on the
+# buyer's official page before anything reaches the tracker's Pipeline.
+#
+# House rules (see claude/rfp-collector-tools.md in the project):
+# - official APIs, official feeds and public pages only;
+# - respect robots.txt for every page or feed that isn't an API;
+# - go slowly (one request per second per site) and identify ourselves;
+# - never log in, never get around a block.
+
+# Phrases that make an item a lead (case-insensitive, matched on title + description).
+keywords:
+  - wayfinding
+  - way-finding
+  - campus map
+  - interactive map
+  - digital map
+  - online map
+  - web map
+  - story map
+  - map viewer
+  - illustrated map
+  - map illustration
+  - visitor map
+  - trail map
+  - precinct map
+  - virtual tour
+  - 360 tour
+  - 360-degree
+  - 360 degree
+  - virtual walkthrough
+  - virtual campus
+  - campus tour
+  - self-guided tour
+  - digital directory
+  - interactive directory
+  - augmented reality
+  - virtual reality
+  - signage design
+  - signage strategy
+  - signage master plan
+  - signage guidelines
+  - signage standards
+  - sign family
+  - environmental graphics
+  - environmental graphic design
+  - interpretive signage
+  - interpretive sign
+  - wayside exhibit
+  - car park signage
+  - parking wayfinding
+  - digital interactive
+  - visitor experience
+
+# If any of these appear, the item is dropped (core scope is not our work).
+exclude:
+  - traffic sign
+  - road sign
+  - street sign
+  - speed sign
+  - variable message sign
+  - parking guidance
+  - occupancy sensor
+  - license plate
+  - lidar
+  - cadastral
+  - topographic survey
+  - aerial imagery
+  - flood map
+  - hazard map
+  - zoning map
+  - ng911
+  - fleet tracking
+  - sitemap
+
+# How many days of leads to publish in docs/leads.json.
+publish_days: 21
+
+sources:
+  # US federal. Needs a free SAM.gov API key stored as the GitHub secret SAM_API_KEY
+  # (SAM.gov > Account Details > API Key). Skipped, and reported, until the key exists.
+  sam_gov:
+    enabled: true
+    days_back: 3
+    # A personal key allows about 10 calls a day, so we read ALL new notices
+    # (pages of 1000) and filter them here with the keywords above, instead of
+    # one search per keyword. max_calls keeps us under the daily limit.
+    max_calls: 8
+    # Notices with these codes are kept even without a keyword (exclusions still apply).
+    naics: ["541430", "541370"]   # graphic design; mapping (surveying and mapping)
+    psc: ["T099"]                 # the product code the VA used for wayfinding maps
+
+  # US grants: early warning (grant winners usually tender soon after). Keyless.
+  grants_gov:
+    enabled: true
+    keywords: [wayfinding, signage, interpretive, virtual tour, interactive map]
+
+  # NSW eTendering public API (keyless, rate-limited per IP).
+  # Docs: github.com/NSW-eTendering/NSW-eTendering-API. We ask for open (published)
+  # RFTs only and follow links.next through every page; planned procurements are
+  # added as early-warning "forecast" leads.
+  nsw_etendering:
+    enabled: true
+    results_per_page: 100
+    max_pages: 40
+    planned: true
+
+  # US council agendas (Legistar public web API): early warning, months before an RFP.
+  # Add a council's Legistar client name (the part before .legistar.com).
+  legistar:
+    enabled: true
+    days_back: 14
+    terms: [wayfinding, campus map, virtual tour, signage master plan, interactive map]
+    clients: [seattle, chicago, denver, phoenix, sanantonio, austintexas, fortworthgov, boston, sfgov, oakland, longbeach, sanjose, cityofsacramento, pittsburgh, milwaukee, columbus, nashville, kansascity, minneapolismn, stpaul]
+
+  # RSS feeds: bid-page feeds of target buyers (e.g. CivicPlus "Bids" RSS),
+  # Google Alerts RSS (when switched from email), Talkwalker Alerts.
+  # Each entry: {name: ..., url: ...}. robots.txt is checked before every fetch.
+  rss: []
+
+  # OpenGov public listings (approach from cliwant/mcp-sam-gov). OFF until
+  # OpenGov's terms have been checked (see the plan).
+  opengov:
+    enabled: false
