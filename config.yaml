@@ -99,8 +99,11 @@ sources:
   # Docs: github.com/NSW-eTendering/NSW-eTendering-API. We ask for open (published)
   # RFTs only and follow links.next through every page; planned procurements are
   # added as early-warning "forecast" leads.
+  # OFF since 2 Nov 2026: tenders.nsw.gov.au now forwards to buy.nsw.gov.au, which
+  # refuses the API (403). NSW open tenders must be on buy.nsw from 2026; its API is for
+  # agencies only, so NSW reaches us through buy.nsw's nightly supplier email instead.
   nsw_etendering:
-    enabled: true
+    enabled: false
     results_per_page: 100
     max_pages: 40
     planned: true

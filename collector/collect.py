@@ -377,6 +377,8 @@ def run(cfg: dict, today: dt.date, http: Http | None = None, fetchers: dict | No
             res = fn(http, scfg, today)
             items, note = res if isinstance(res, tuple) else (res, "")
             kept = 0
+            sample = [i["title"][:70] for i in items[:3]]
+            print(f"[{name}] {len(items)} items; sample: {sample}", file=sys.stderr)
             for it in items:
                 text = it["title"] + " " + it["summary"]
                 hits = match(text, cfg["keywords"], cfg["exclude"])
