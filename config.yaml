@@ -139,8 +139,10 @@ sources:
 
   # AusTender (Australian Government) official RSS of current Approaches to Market.
   # The feed address is looked up each run from its data.gov.au record.
+  # OFF since 2 Nov 2026: tenders.gov.au refuses the feed to our runner (HTTP 403).
+  # We don't get around blocks; AusTender reaches us through its own email alerts.
   austender:
-    enabled: true
+    enabled: false
     dataset: efe713db-f91e-4708-9edb-e3d3e321cfee
 
   # OpenGov public listings (approach from cliwant/mcp-sam-gov). OFF until
