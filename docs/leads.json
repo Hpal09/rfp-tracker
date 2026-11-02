@@ -1,1 +1,46 @@
-{"generated_at": null, "about": "Leads only. Not yet run.", "source_health": [], "counts": {"published": 0, "new_today": 0}, "leads": []}
+{
+  "generated_at": "2026-11-02T01:42:15+00:00",
+  "about": "Leads only. Each item must be verified on the buyer's official page before it is treated as a tender.",
+  "source_health": [
+    {
+      "source": "sam_gov",
+      "status": "SKIPPED",
+      "items": 0,
+      "kept": 0,
+      "note": "SKIPPED: no SAM_API_KEY secret yet"
+    },
+    {
+      "source": "grants_gov",
+      "status": "OK",
+      "items": 214,
+      "kept": 0,
+      "note": ""
+    },
+    {
+      "source": "nsw_etendering",
+      "status": "FAILED",
+      "items": 0,
+      "kept": 0,
+      "note": "403 Client Error: Forbidden for url: https://buy.nsw.gov.au"
+    },
+    {
+      "source": "legistar",
+      "status": "OK",
+      "items": 0,
+      "kept": 0,
+      "note": "18 councils OK; failed: chicago (HTTP 500), cityofsacramento (HTTP 500)"
+    },
+    {
+      "source": "rss",
+      "status": "OK",
+      "items": 0,
+      "kept": 0,
+      "note": ""
+    }
+  ],
+  "counts": {
+    "published": 0,
+    "new_today": 0
+  },
+  "leads": []
+}
