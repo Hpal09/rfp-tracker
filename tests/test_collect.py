@@ -247,7 +247,7 @@ def test_austender_finds_feed_via_data_gov_au_and_reads_it():
                 return FakeResp({"result": {"resources": [{"format": "RSS", "url": "https://www.tenders.gov.au/public_data/rss/rss.xml"}]}})
             assert url == "https://www.tenders.gov.au/public_data/rss/rss.xml" and check_robots
             return FakeResp(content=feed)
-    found, health = c.run({**CFG, "sources": {"austender": CFG["sources"]["austender"]}}, TODAY,
+    found, health = c.run({**CFG, "sources": {"austender": {**CFG["sources"]["austender"], "enabled": True}}}, TODAY,
                           http=H(), fetchers={"austender": c.src_austender})
     assert health[0]["status"] == "OK", health
     assert [f["title"] for f in found] == ["ATM 2026-114 Wayfinding Signage Strategy"]
