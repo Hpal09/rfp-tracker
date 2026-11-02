@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T03:24:36+00:00",
+  "generated_at": "2026-11-02T03:38:13+00:00",
   "about": "Leads only. Each item must be verified on the buyer's official page before it is treated as a tender.",
   "source_health": [
     {
@@ -40,21 +40,21 @@
     {
       "source": "pages",
       "status": "OK",
-      "items": 483,
-      "kept": 0,
-      "note": "2 pages OK"
+      "items": 1652,
+      "kept": 1,
+      "note": "10 pages OK; failed: County of Marin (HTTP 403), APA planning RFP listings (HTTP 404)"
     },
     {
       "source": "austender",
-      "status": "FAILED",
+      "status": "OFF",
       "items": 0,
       "kept": 0,
-      "note": "all feeds failed: AusTender (HTTP 403)"
+      "note": ""
     }
   ],
   "counts": {
-    "published": 1,
-    "new_today": 0
+    "published": 2,
+    "new_today": 1
   },
   "leads": [
     {
@@ -73,6 +73,23 @@
       ],
       "first_seen": "2026-11-02",
       "new_today": false
+    },
+    {
+      "id": "page-29ced63b8ef80d9c",
+      "source": "page",
+      "kind": "tender",
+      "title": "Request for Qualifications Wayfinding Signage Project",
+      "buyer": "Village of Western Springs",
+      "region": "USA (IL)",
+      "url": "https://www.wsprings.com/bids.aspx?bidID=157",
+      "posted": "",
+      "closing": "",
+      "summary": "Link on Village of Western Springs page https://www.wsprings.com/bids.aspx",
+      "matched": [
+        "wayfinding"
+      ],
+      "first_seen": "2026-11-02",
+      "new_today": true
     }
   ]
 }

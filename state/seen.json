@@ -32,5 +32,22 @@
   ],
   "first_seen": "2026-11-02",
   "new_today": false
+ },
+ "page-29ced63b8ef80d9c": {
+  "id": "page-29ced63b8ef80d9c",
+  "source": "page",
+  "kind": "tender",
+  "title": "Request for Qualifications Wayfinding Signage Project",
+  "buyer": "Village of Western Springs",
+  "region": "USA (IL)",
+  "url": "https://www.wsprings.com/bids.aspx?bidID=157",
+  "posted": "",
+  "closing": "",
+  "summary": "Link on Village of Western Springs page https://www.wsprings.com/bids.aspx",
+  "matched": [
+   "wayfinding"
+  ],
+  "first_seen": "2026-11-02",
+  "new_today": true
  }
 }
