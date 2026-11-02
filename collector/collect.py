@@ -161,7 +161,7 @@ def src_sam(http: Http, cfg: dict, today: dt.date):
     base = "https://api.sam.gov/opportunities/v2/search"
     max_calls = int(cfg.get("max_calls", 8))
     codes = {str(c) for c in cfg.get("naics", [])} | {str(c) for c in cfg.get("psc", [])}
-    out, ids, note = [], set(), ""
+    out, ids, note, skipped = [], set(), "", 0
     page, read, total, calls, record_offsets = 0, 0, None, 0, False
     while calls < max_calls:
         params = {"api_key": key, "postedFrom": frm, "postedTo": to, "limit": 1000,
@@ -192,6 +192,7 @@ def src_sam(http: Http, cfg: dict, today: dt.date):
             ids.add(nid)
             typ = (o.get("type") or "")
             if any(s in typ.lower() for s in SAM_SKIP_TYPES):
+                skipped += 1
                 continue
             hit = [f"code:{c}" for c in (o.get("naicsCode"), o.get("classificationCode")) if c and str(c) in codes]
             it = make("sam_gov", nid,
@@ -210,7 +211,8 @@ def src_sam(http: Http, cfg: dict, today: dt.date):
             break
     if total is not None and read < total and not note:
         note = f"read {read} of {total} notices (call cap {max_calls})"
-    return out, note
+    summary = f"{calls} calls, {total} notices posted, {skipped} award/other skipped"
+    return out, f"{summary}; {note}" if note else summary
 
 
 def src_grants(http: Http, cfg: dict, today: dt.date) -> list[dict]:
