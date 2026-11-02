@@ -199,3 +199,21 @@ def test_sam_long_lookback_split_into_years(monkeypatch):
     assert seen == [("11/03/2025", "11/02/2026"), ("12/02/2024", "11/02/2025")]
     assert {i["id"] for i in items} == {c.lead_id("sam_gov", "x"), c.lead_id("sam_gov", "v1")}
     assert note.startswith("2 calls")
+
+
+def test_pages_finds_matching_links_and_respects_robots(monkeypatch):
+    html = """<html><body><a href="/bids/123">RFP 26-14 Campus Wayfinding and Signage Design</a>
+    <a href="/bids/124">Roof replacement Building C</a><a href="mailto:x@y.edu">Email purchasing</a></body></html>"""
+    class H:
+        def get(self, url, check_robots=False, **kw):
+            assert check_robots
+            if "blocked" in url:
+                raise PermissionError("robots.txt disallows")
+            r = FakeResp(); r.text = html; return r
+    pages = [{"name": "Example University", "url": "https://purchasing.example.edu/bids/", "region": "USA (TX)"},
+             {"name": "Blocked City", "url": "https://blocked.example.gov/bids"}]
+    cfg = {**CFG, "sources": {"pages": pages}}
+    found, health = c.run(cfg, TODAY, http=H(), fetchers={"pages": c.src_pages})
+    assert [f["url"] for f in found] == ["https://purchasing.example.edu/bids/123"]
+    assert found[0]["buyer"] == "Example University"
+    assert "1 pages OK" in health[0]["note"] and "Blocked City" in health[0]["note"]

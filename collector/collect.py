@@ -365,12 +365,51 @@ def src_rss(http: Http, cfg: list, today: dt.date) -> list[dict]:
     return out
 
 
+class _Links(__import__("html.parser").parser.HTMLParser):
+    """Collect (href, text) for every link on a page."""
+    def __init__(self):
+        super().__init__(); self.links, self._href, self._text = [], None, []
+    def handle_starttag(self, tag, attrs):
+        if tag == "a":
+            a = dict(attrs); self._href, self._text = a.get("href"), [a.get("title") or ""]
+    def handle_data(self, data):
+        if self._href is not None:
+            self._text.append(data)
+    def handle_endtag(self, tag):
+        if tag == "a" and self._href is not None:
+            self.links.append((self._href, norm(" ".join(self._text)))); self._href = None
+
+
+def src_pages(http: Http, cfg: list, today: dt.date):
+    """Public bid pages of target buyers. Every link on the page becomes an item
+    (keyword filtering happens in run()). robots.txt is checked for every page."""
+    out, failed = [], []
+    for pg in cfg or []:
+        try:
+            r = http.get(pg["url"], check_robots=True)
+        except Exception as e:
+            failed.append(f"{pg.get('name', pg['url'])} ({_http_reason(e)})")
+            continue
+        parser = _Links(); parser.feed(r.text)
+        for href, text in parser.links:
+            if not href or len(text) < 8 or href.startswith(("mailto:", "javascript:", "#")):
+                continue
+            link = urllib.parse.urljoin(pg["url"], href)
+            out.append(make("page", link + "|" + text, title=text, buyer=pg.get("name", ""), url=link,
+                            region=pg.get("region", "Not stated"), kind=pg.get("kind", "tender"),
+                            summary=f"Link on {pg.get('name', '')} bids page {pg['url']}"))
+    if failed and len(failed) == len(cfg or []):
+        raise RuntimeError("all pages failed: " + ", ".join(failed[:6]))
+    return out, f"{len(cfg or []) - len(failed)} pages OK" + (f"; failed: {', '.join(failed)}" if failed else "")
+
+
 SOURCES = {
     "sam_gov": src_sam,
     "grants_gov": src_grants,
     "nsw_etendering": src_nsw,
     "legistar": src_legistar,
     "rss": src_rss,
+    "pages": src_pages,
 }
 
 

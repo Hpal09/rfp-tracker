@@ -121,6 +121,13 @@ sources:
   # Each entry: {name: ..., url: ...}. robots.txt is checked before every fetch.
   rss: []
 
+  # Public bid pages of target buyers (page watching). Each link on the page whose
+  # text matches our keywords becomes a lead, once (state/seen.json remembers it).
+  # robots.txt is checked before every fetch. Public pages only: never a login portal
+  # (Bonfire, BidNet, TenderLink, OpenGov, VendorPanel buyer portals etc.).
+  # Each entry: {name: ..., url: ..., region: ...}
+  pages: []
+
   # OpenGov public listings (approach from cliwant/mcp-sam-gov). OFF until
   # OpenGov's terms have been checked (see the plan).
   opengov:
