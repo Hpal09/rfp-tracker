@@ -137,7 +137,7 @@ sources:
       url: "https://www.gets.govt.nz/FutureProcurementOpportunitiesIndex.htm"
       region: New Zealand
       kind: forecast
-    # Not watched (refused or login-only): County of Marin (403), APA planning.org RFP list (404, moved).
+    # Not watched (refused or login-only): County of Marin (403), APA planning.org RFP list (404, moved), Planetizen (403).
     # US / AU buyers from the test list (claude/rfp-test-list-data.csv): their own public bids pages.
     - {name: University of Arkansas at Little Rock, url: "https://ualr.edu/procurement/bids", region: USA (AR)}
     - {name: Cuyahoga Community College (Tri-C), url: "https://www.tri-c.edu/administrative-departments/procurement/current-opportunitiesawards.html", region: USA (OH)}
@@ -145,7 +145,6 @@ sources:
     - {name: Eastern Kentucky University, url: "https://purchasing.eku.edu/solicitations", region: USA (KY)}
     - {name: Washington County MN, url: "https://washingtoncountymn.gov/bids.aspx", region: USA (MN)}
     - {name: Village of Western Springs, url: "https://www.wsprings.com/bids.aspx", region: USA (IL)}
-    - {name: Planetizen planning RFPs, url: "https://www.planetizen.com/rfps", region: USA}
     - {name: Shire of East Pilbara, url: "https://www.eastpilbara.wa.gov.au/tenders", region: Australia (WA)}
     - {name: Bellingen Shire Council, url: "https://www.bellingen.nsw.gov.au/Business/Doing-business-with-us/Tenders-and-Quotations", region: Australia (NSW)}
 

@@ -314,3 +314,15 @@ def test_pages_unclosed_cells_do_not_leak_between_rows():
       <tr><td>Trail map and interpretive signage<td><a href="/b/2">View</a></table>"""
     found = _page_items(html)
     assert [f["url"] for f in found] == ["https://bids.example.gov/b/2"]
+
+
+def test_pages_number_link_uses_row_text():
+    html = """<table><tr><td><a href="/AT/ExternalTenderDetails.htm?id=35356533">35356533</a></td>
+      <td>Wayfinding Signage Supplier Panel</td><td>Auckland Transport</td><td>6 Nov 2026</td></tr>
+      <tr><td><a href="/X/ExternalTenderDetails.htm?id=1">35350001</a></td><td>Road resurfacing</td></tr></table>"""
+    class H:
+        def get(self, url, check_robots=False, **kw):
+            r = FakeResp(); r.text = html; return r
+    found, _ = c.run({**CFG, "sources": {"pages": [{"name": "GETS", "url": "https://www.gets.govt.nz/ExternalIndex.htm"}]}},
+                     TODAY, http=H(), fetchers={"pages": c.src_pages})
+    assert len(found) == 1 and "Wayfinding Signage Supplier Panel" in found[0]["title"]
