@@ -48,6 +48,76 @@
    "wayfinding"
   ],
   "first_seen": "2026-11-02",
+  "new_today": false
+ },
+ "page-da57ecc68559434a": {
+  "id": "page-da57ecc68559434a",
+  "source": "page",
+  "kind": "tender",
+  "title": "35356533",
+  "buyer": "GETS (NZ) current tenders",
+  "region": "New Zealand",
+  "url": "https://www.gets.govt.nz/AT/ExternalTenderDetails.htm?id=35356533",
+  "posted": "",
+  "closing": "",
+  "summary": "35356533 745-26-900-PS 745-26-900-PS - Advance notice Update - Wayfinding Signage Supplier (WSSP) Panel NOI 5:00 PM 6 Nov 2026 (Pacific/Auckland UTC+13:00) Auckland Transport | Link on GETS (NZ) current tenders page https://www.gets.govt.nz/ExternalIndex.htm?page=1&orderBy=date",
+  "matched": [
+   "wayfinding"
+  ],
+  "first_seen": "2026-11-02",
+  "new_today": true
+ },
+ "page-e5db55f16c3ed867": {
+  "id": "page-e5db55f16c3ed867",
+  "source": "page",
+  "kind": "tender",
+  "title": "35365145",
+  "buyer": "GETS (NZ) current tenders",
+  "region": "New Zealand",
+  "url": "https://www.gets.govt.nz/HEALTHNZ/ExternalTenderDetails.htm?id=35365145",
+  "posted": "",
+  "closing": "",
+  "summary": "35365145 [None] Grow Manukau Health Park - Electronic Wayfinding and Pathfinding Solution RFP 12:00 PM 27 Nov 2026 (Pacific/Auckland UTC+13:00) Health New Zealand (Te Whatu Ora) | Link on GETS (NZ) current tenders page https://www.gets.govt.nz/ExternalIndex.htm?page=1&orderBy=date",
+  "matched": [
+   "wayfinding"
+  ],
+  "first_seen": "2026-11-02",
+  "new_today": true
+ },
+ "page-0b3de1125ed35a89": {
+  "id": "page-0b3de1125ed35a89",
+  "source": "page",
+  "kind": "tender",
+  "title": "FB-26-016 RFP Solicitation",
+  "buyer": "University of Arkansas at Little Rock",
+  "region": "USA (AR)",
+  "url": "https://ualr.edu/procurement/wp-content/uploads/sites/238/2026/03/FB-26-016-SaaS-Virtual-Campus-Tours-and-Interactive-Map-Platform.docx-2.pdf",
+  "posted": "",
+  "closing": "",
+  "summary": "April 6, 2026 @ 4:00 p.m. CST FB-26-016 RFP SaaS Virtual Campus Tours and Interactive Map Platform FB-26-016 RFP Solicitation FB-26-016 RFP Technical Response Packet FB-26-016 RFP Financial Proposal Packet FB-26-016 RFP Q&A FB-26-016 RFP Intent to Award Awarded - Beyond Media Digital | Link on University of Arkansas at Little Rock page https://ualr.edu/procurement/bids",
+  "matched": [
+   "interactive map",
+   "virtual campus"
+  ],
+  "first_seen": "2026-11-02",
+  "new_today": true
+ },
+ "page-58a09a4897389dc0": {
+  "id": "page-58a09a4897389dc0",
+  "source": "page",
+  "kind": "tender",
+  "title": "Project C20251144 Project #C20251144",
+  "buyer": "Cuyahoga Community College (Tri-C)",
+  "region": "USA (OH)",
+  "url": "https://www.tri-c.edu/administrative-departments/procurement/documents/1144-rfq-cw-wayfinding-102025.pdf",
+  "posted": "",
+  "closing": "",
+  "summary": "Oct. 27, 2025 REQUEST FOR PROFESSIONAL DESIGN SERVICES Collegewide Interior and Exterior Wayfinding Signage Design and Planning Services Project #C20251144 - click to view Multiple Campuses Cleveland, Ohio Nov. 12, 2025 @ noon | Link on Cuyahoga Community College (Tri-C) page https://www.tri-c.edu/administrative-departments/procurement/current-opportunitiesawards.html",
+  "matched": [
+   "wayfinding",
+   "signage design"
+  ],
+  "first_seen": "2026-11-02",
   "new_today": true
  }
 }
