@@ -185,3 +185,17 @@ def test_legistar_reports_failed_councils():
     assert "1 councils OK" in note and "badcity (HTTP 401)" in note
     with pytest.raises(RuntimeError):
         c.src_legistar(FnHttp(lambda u, p: http_error(500)), cfg, TODAY)
+
+
+def test_sam_long_lookback_split_into_years(monkeypatch):
+    monkeypatch.setenv("SAM_API_KEY", "k")
+    monkeypatch.setenv("SAM_DAYS_BACK", "700")
+    seen = []
+    def fn(url, params):
+        seen.append((params["postedFrom"], params["postedTo"]))
+        return {"totalRecords": 1, "opportunitiesData": [
+            {"noticeId": "v1" if len(seen) == 2 else "x", "title": "Interactive Wayfinding Maps", "type": "Solicitation"}]}
+    items, note = c.src_sam(FnHttp(fn), CFG["sources"]["sam_gov"], TODAY)
+    assert seen == [("11/03/2025", "11/02/2026"), ("12/02/2024", "11/02/2025")]
+    assert {i["id"] for i in items} == {c.lead_id("sam_gov", "x"), c.lead_id("sam_gov", "v1")}
+    assert note.startswith("2 calls")

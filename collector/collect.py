@@ -148,71 +148,80 @@ def src_sam(http: Http, cfg: dict, today: dt.date):
     search per keyword. We read everything new (a few pages) and match locally,
     which also catches titles our keyword list would not have searched for.
     Notices with our NAICS/PSC codes are kept even without a keyword ("code:..." in matched).
-    Env overrides for one-off checks: SAM_DAYS_BACK, SAM_TITLE.
+    Env overrides for one-off checks: SAM_DAYS_BACK (up to 1095, one call per year), SAM_TITLE.
     """
     key = os.environ.get("SAM_API_KEY", "").strip()
     if not key:
         raise RuntimeError("SKIPPED: no SAM_API_KEY secret yet")
-    days = int(os.environ.get("SAM_DAYS_BACK") or cfg.get("days_back", 3))
-    days = min(days, 364)  # the API refuses ranges over a year
+    days = max(1, min(int(os.environ.get("SAM_DAYS_BACK") or cfg.get("days_back", 3)), 1095))
     title = os.environ.get("SAM_TITLE", "").strip()
-    frm = (today - dt.timedelta(days=days)).strftime("%m/%d/%Y")
-    to = today.strftime("%m/%d/%Y")
+    # The API refuses ranges over a year, so long look-backs are split into yearly windows.
+    windows, end = [], today
+    while (today - end).days < days:
+        start = max(end - dt.timedelta(days=364), today - dt.timedelta(days=days))
+        windows.append((start.strftime("%m/%d/%Y"), end.strftime("%m/%d/%Y")))
+        end = start - dt.timedelta(days=1)
     base = "https://api.sam.gov/opportunities/v2/search"
     max_calls = int(cfg.get("max_calls", 8))
     codes = {str(c) for c in cfg.get("naics", [])} | {str(c) for c in cfg.get("psc", [])}
-    out, ids, note, skipped = [], set(), "", 0
-    page, read, total, calls, record_offsets = 0, 0, None, 0, False
-    while calls < max_calls:
-        params = {"api_key": key, "postedFrom": frm, "postedTo": to, "limit": 1000,
-                  "offset": read if record_offsets else page}
-        if title:
-            params["title"] = title
-        try:
-            data = http.get(base, params=params).json()
-        except requests.HTTPError as e:
-            code = e.response.status_code if e.response is not None else 0
-            if code == 429 and calls:
-                note = "SAM.gov daily call limit reached; partial results"
+    out, ids, notes, skipped, calls, total_all = [], set(), [], 0, 0, 0
+    for frm, to in windows:
+        page, read, total, record_offsets, seen_here = 0, 0, None, False, set()
+        while calls < max_calls:
+            params = {"api_key": key, "postedFrom": frm, "postedTo": to, "limit": 1000,
+                      "offset": read if record_offsets else page}
+            if title:
+                params["title"] = title
+            try:
+                data = http.get(base, params=params).json()
+            except requests.HTTPError as e:
+                code = e.response.status_code if e.response is not None else 0
+                if code == 429 and calls:
+                    notes.append("SAM.gov daily call limit reached; partial results")
+                    break
+                raise RuntimeError(f"SAM.gov HTTP {code}") from None  # never echo the URL: it holds the key
+            except requests.RequestException as e:
+                raise RuntimeError(f"SAM.gov {type(e).__name__}") from None
+            calls += 1
+            rows = data.get("opportunitiesData") or []
+            total = int(data.get("totalRecords") or 0)
+            new = [o for o in rows if str(o.get("noticeId")) not in seen_here]
+            if page == 1 and rows and not record_offsets and len(new) < len(rows) / 2:
+                record_offsets = True  # "offset" turned out to be a record offset, not a page number
+            page += 1
+            read += len(rows)
+            for o in new:
+                nid = str(o.get("noticeId") or o.get("solicitationNumber") or o.get("title"))
+                seen_here.add(nid)
+                if nid in ids:
+                    continue
+                ids.add(nid)
+                typ = (o.get("type") or "")
+                if any(x in typ.lower() for x in SAM_SKIP_TYPES):
+                    skipped += 1
+                    continue
+                hit = [f"code:{c}" for c in (o.get("naicsCode"), o.get("classificationCode")) if c and str(c) in codes]
+                it = make("sam_gov", nid,
+                    title=o.get("title"), buyer=o.get("fullParentPathName") or o.get("department"),
+                    url=f"https://sam.gov/opp/{nid}/view",  # uiLink needs a SAM login; this page is public
+                    posted=o.get("postedDate"), closing=o.get("responseDeadLine"),
+                    region="USA (federal)",
+                    kind="forecast" if any(x in typ.lower() for x in ("sources sought", "presolicitation", "special notice")) else "tender",
+                    summary=f"{typ}; sol. {o.get('solicitationNumber','')}; NAICS {o.get('naicsCode','')}; PSC {o.get('classificationCode','')}; set-aside {o.get('typeOfSetAsideDescription') or 'none'}")
+                if hit:
+                    it["code_hits"] = hit
+                out.append(it)
+            if record_offsets:
+                read = len(seen_here)
+            if not rows or read >= total:
                 break
-            raise RuntimeError(f"SAM.gov HTTP {code}") from None  # never echo the URL: it holds the key
-        except requests.RequestException as e:
-            raise RuntimeError(f"SAM.gov {type(e).__name__}") from None
-        calls += 1
-        rows = data.get("opportunitiesData") or []
-        total = int(data.get("totalRecords") or 0)
-        new = [o for o in rows if str(o.get("noticeId")) not in ids]
-        if page == 1 and rows and not record_offsets and len(new) < len(rows) / 2:
-            # "offset" turned out to be a record offset, not a page number
-            record_offsets = True
-        page += 1
-        read += len(rows)
-        for o in new:
-            nid = str(o.get("noticeId") or o.get("solicitationNumber") or o.get("title"))
-            ids.add(nid)
-            typ = (o.get("type") or "")
-            if any(s in typ.lower() for s in SAM_SKIP_TYPES):
-                skipped += 1
-                continue
-            hit = [f"code:{c}" for c in (o.get("naicsCode"), o.get("classificationCode")) if c and str(c) in codes]
-            it = make("sam_gov", nid,
-                title=o.get("title"), buyer=o.get("fullParentPathName") or o.get("department"),
-                url=f"https://sam.gov/opp/{nid}/view",  # uiLink needs a SAM login; this page is public
-                posted=o.get("postedDate"), closing=o.get("responseDeadLine"),
-                region="USA (federal)",
-                kind="forecast" if any(s in typ.lower() for s in ("sources sought", "presolicitation", "special notice")) else "tender",
-                summary=f"{typ}; sol. {o.get('solicitationNumber','')}; NAICS {o.get('naicsCode','')}; PSC {o.get('classificationCode','')}; set-aside {o.get('typeOfSetAsideDescription') or 'none'}")
-            if hit:
-                it["code_hits"] = hit
-            out.append(it)
-        if record_offsets:
-            read = len(ids)
-        if not rows or read >= total:
+        total_all += total or 0
+        if total is not None and read < total and not any("limit" in n for n in notes):
+            notes.append(f"{frm}-{to}: read {read} of {total} (call cap {max_calls})")
+        if calls >= max_calls or any("limit" in n for n in notes):
             break
-    if total is not None and read < total and not note:
-        note = f"read {read} of {total} notices (call cap {max_calls})"
-    summary = f"{calls} calls, {total} notices posted, {skipped} award/other skipped"
-    return out, f"{summary}; {note}" if note else summary
+    summary = f"{calls} calls, {total_all} notices posted, {skipped} award/other skipped"
+    return out, "; ".join([summary] + notes)
 
 
 def src_grants(http: Http, cfg: dict, today: dt.date) -> list[dict]:

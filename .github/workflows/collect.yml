@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       sam_days_back:
-        description: "One-off: SAM.gov days to look back (blank = normal 3; max 364)"
+        description: "One-off: SAM.gov days to look back (blank = normal 3; max 1095, one call per year)"
         required: false
         default: ""
       sam_title:
