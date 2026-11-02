@@ -268,3 +268,49 @@ def test_rss_one_bad_feed_and_google_alerts_links():
     assert items[0]["url"] == "https://city.example.gov/bids/42"
     assert items[0]["title"] == "City issues RFP for wayfinding plan"
     assert "1 feeds OK" in note and "Bad" in note
+
+
+def _page_items(html, name="Buyer"):
+    class H:
+        def get(self, url, check_robots=False, **kw):
+            r = FakeResp(); r.text = html; return r
+    cfg = {**CFG, "sources": {"pages": [{"name": name, "url": "https://bids.example.gov/bids.aspx"}]}}
+    return c.run(cfg, TODAY, http=H(), fetchers={"pages": c.src_pages})[0]
+
+
+def test_pages_uses_row_text_when_link_text_is_generic():
+    html = """<table>
+      <tr><td>RFP 26-07</td><td>Downtown Wayfinding Signage Design</td><td>Closes 12/01/2026</td>
+          <td><a href="/bid/7">View</a></td></tr>
+      <tr><td>RFP 26-08</td><td>Pool resurfacing</td><td><a href="/bid/8">Details</a></td></tr>
+    </table>"""
+    found = _page_items(html)
+    assert [f["url"] for f in found] == ["https://bids.example.gov/bid/7"]
+    assert "Downtown Wayfinding Signage Design" in found[0]["title"]
+    assert "wayfinding" in found[0]["matched"]
+    assert found[0]["id"] == c.lead_id("page", "https://bids.example.gov/bid/7")  # stable when the row text changes
+
+
+def test_pages_one_item_per_row_with_its_best_link():
+    # CivicPlus-style list: title link, then "Read on" and a document link in the same row
+    html = """<ul>
+      <li><a href="/doc/1.pdf">Download</a> <a href="bids.aspx?bidID=31">RFQ Campus Map and Virtual Tour</a>
+          <a href="bids.aspx?bidID=31#more">Read on</a> Addendum 1 posted</li>
+      <li><a href="bids.aspx?bidID=32">Snow removal services 2026-27</a> <a href="/doc/2.pdf">Download</a>
+      <li><a href="bids.aspx?bidID=33">Annual report printing</a></li>
+    </ul>"""
+    found = _page_items(html)
+    assert len(found) == 1                     # one lead for the row, not one per link
+    f = found[0]
+    assert f["url"] == "https://bids.example.gov/bids.aspx?bidID=31"
+    assert f["title"] == "RFQ Campus Map and Virtual Tour"
+    assert "Addendum 1 posted" in f["summary"]
+    # same id as before the row change: link|link text
+    assert f["id"] == c.lead_id("page", "https://bids.example.gov/bids.aspx?bidID=31|RFQ Campus Map and Virtual Tour")
+
+
+def test_pages_unclosed_cells_do_not_leak_between_rows():
+    html = """<table><tr><td>Library roof<td><a href="/b/1">View</a>
+      <tr><td>Trail map and interpretive signage<td><a href="/b/2">View</a></table>"""
+    found = _page_items(html)
+    assert [f["url"] for f in found] == ["https://bids.example.gov/b/2"]

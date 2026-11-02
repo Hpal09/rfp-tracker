@@ -380,29 +380,93 @@ def src_rss(http: Http, cfg: list, today: dt.date):
     return out, f"{n - len(failed)} feeds OK" + (f"; failed: {', '.join(failed)}" if failed else "")
 
 
+# Link text that says nothing about the tender ("View", "Details"...): use the row text instead.
+GENERIC_LINK = re.compile(
+    r"^(view|details?|view details|more|more info(rmation)?|read (more|on)|click here|here|download|"
+    r"open|info|link|pdf|documents?|bid documents?|see more|learn more|view bid|view rfp|view solicitation)"
+    r"[\s.:>»›-]*$", re.I)
+ROW_TAGS = {"tr", "li", "article", "dd"}
+BLOCK_TAGS = ROW_TAGS | {"div", "p", "td", "th", "dt", "section", "table", "tbody", "ul", "ol", "dl",
+                         "h1", "h2", "h3", "h4", "h5", "h6", "header", "footer", "nav", "main", "body"}
+# HTML lets these close themselves: a new <tr> closes the open row (and its cell), a new <li> the open
+# item, and so on, but only up to the enclosing table or list.
+IMPLICIT_CLOSE = {
+    "tr": ({"tr", "td", "th"}, {"table", "tbody"}),
+    "td": ({"td", "th"}, {"tr", "table"}), "th": ({"td", "th"}, {"tr", "table"}),
+    "li": ({"li"}, {"ul", "ol"}),
+    "dd": ({"dd", "dt"}, {"dl"}), "dt": ({"dd", "dt"}, {"dl"}),
+    "p": ({"p"}, BLOCK_TAGS - {"p"}),
+}
+
+
 class _Links(__import__("html.parser").parser.HTMLParser):
-    """Collect (href, text) for every link on a page."""
+    """Collect every link on a page with its own text and the text of the block it sits in
+    (table row, list item...). Row text catches bids whose link only says "View" or "Details"."""
     def __init__(self):
-        super().__init__(); self.links, self._href, self._text = [], None, []
+        super().__init__(convert_charrefs=True)
+        self.links, self._href, self._text, self._stack = [], None, [], []
     def handle_starttag(self, tag, attrs):
+        if tag in BLOCK_TAGS:
+            closes, scope = IMPLICIT_CLOSE.get(tag, (set(), set()))
+            for i in range(len(self._stack) - 1, -1, -1):
+                t = self._stack[i][0]
+                if t in scope and t not in closes:
+                    break
+                if t in closes:
+                    del self._stack[i:]
+            self._stack.append((tag, []))
         if tag == "a":
             a = dict(attrs); self._href, self._text = a.get("href"), [a.get("title") or ""]
     def handle_data(self, data):
+        for _, buf in self._stack:
+            buf.append(data)
         if self._href is not None:
             self._text.append(data)
     def handle_endtag(self, tag):
         if tag == "a" and self._href is not None:
-            self.links.append((self._href, norm(" ".join(self._text)))); self._href = None
+            self.links.append((self._href, norm(" ".join(self._text)), list(self._stack))); self._href = None
+        elif tag in BLOCK_TAGS and any(t == tag for t, _ in self._stack):
+            while self._stack and self._stack.pop()[0] != tag:
+                pass
+
+    def rows(self):
+        """Yield (href, link_text, row_key, context_text). row_key groups links of one table row or
+        list item; context_text is the text of that row (or of the nearest short block)."""
+        joined = {}
+        def txt(buf):
+            if id(buf) not in joined:
+                joined[id(buf)] = norm(" ".join(buf))
+            return joined[id(buf)]
+        for href, text, stack in self.links:
+            row_key, ctx = None, ""
+            for tag, buf in reversed(stack):  # innermost row first
+                t = txt(buf)
+                if tag in ROW_TAGS and len(t) <= 400:
+                    row_key, ctx = id(buf), t
+                    break
+            if row_key is None:
+                for tag, buf in reversed(stack):
+                    t = txt(buf)
+                    if len(t) > len(text) and len(t) <= 300:
+                        ctx = t
+                        break
+            yield href, text, row_key, ctx
+
+
+def _meaningful(text: str) -> bool:
+    return len(text) >= 8 and not GENERIC_LINK.match(text)
 
 
 def src_pages(http: Http, cfg: list, today: dt.date):
-    """Public bid pages of target buyers. Every link on the page becomes an item
-    (keyword filtering happens in run()). robots.txt is checked for every page."""
+    """Public bid pages of target buyers. Each table row / list item with a link becomes one item
+    (keyword filtering happens in run(), on the link text plus the row text); links outside rows
+    are items of their own. robots.txt is checked for every page."""
     out, failed = [], []
     for pg in cfg or []:
         # A url with {page} is a paged list: pages 1..max_pages, stopping when a page adds nothing new.
         pages = range(1, int(pg.get("max_pages", 1)) + 1) if "{page}" in pg["url"] else [None]
         seen_links = set()
+        where = f"Link on {pg.get('name', '')} page {pg['url'].replace('{page}', '1')}"
         for n in pages:
             url = pg["url"].replace("{page}", str(n)) if n else pg["url"]
             try:
@@ -410,18 +474,36 @@ def src_pages(http: Http, cfg: list, today: dt.date):
             except Exception as e:
                 failed.append(f"{pg.get('name', pg['url'])} ({_http_reason(e)})")
                 break
-            parser = _Links(); parser.feed(r.text)
-            added = 0
-            for href, text in parser.links:
-                if not href or len(text) < 8 or href.startswith(("mailto:", "javascript:", "#")):
+            parser = _Links(); parser.feed(r.text); parser.close()
+            # one item per row: its first meaningful link, else its first link
+            picked, order = {}, []
+            for href, text, row_key, ctx in parser.rows():
+                if not href or href.startswith(("mailto:", "javascript:", "#", "tel:")):
                     continue
+                if not _meaningful(text) and len(ctx) < 8:
+                    continue
+                if row_key is None and _meaningful(text):
+                    ctx = ""  # outside a row the nearby text may belong to other links
+                key = row_key if row_key is not None else ("link", len(order))
+                cur = picked.get(key)
+                if cur is None:
+                    picked[key] = (href, text, ctx); order.append(key)
+                elif not _meaningful(cur[1]) and _meaningful(text):
+                    picked[key] = (href, text, ctx)
+            added = 0
+            for key in order:
+                href, text, ctx = picked[key]
                 link = urllib.parse.urljoin(url, href)
                 if link in seen_links:
                     continue
                 seen_links.add(link); added += 1
-                out.append(make("page", link + "|" + text, title=text, buyer=pg.get("name", ""), url=link,
+                title = text if _meaningful(text) else ctx[:200]
+                extra = ctx if ctx and ctx != title else ""
+                # id: link + its own text, as before; a "View" link's row text can change (addenda), so link only
+                key = link + "|" + text if _meaningful(text) else link
+                out.append(make("page", key, title=title, buyer=pg.get("name", ""), url=link,
                                 region=pg.get("region", "Not stated"), kind=pg.get("kind", "tender"),
-                                summary=f"Link on {pg.get('name', '')} page {pg['url'].replace('{page}', '1')}"))
+                                summary=(extra[:300] + " | " if extra else "") + where))
             if n and not added:
                 break
     if failed and len(failed) == len(cfg or []):

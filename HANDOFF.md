@@ -50,8 +50,12 @@ Run workflow has two optional inputs for one-off SAM checks: `sam_days_back` (up
    45 buyers are now watched.
 2. Google Alerts RSS: Mark switches the 15 alerts on rfptracker11@gmail.com to RSS delivery; add each URL to
    `sources.rss` with `kind: alert`. Then A2 no longer needs to read Google Alerts by email.
-3. Page watcher quality: it keeps any link whose TEXT matches a keyword. Bid pages with generic link text
-   ("View", "Details") will miss. Consider matching on the table row text around each link.
+3. DONE 3 Nov: page watcher now reads the table row / list item around each link. A row whose link only says
+   "View" / "Details" / "Download" becomes a lead titled by the row text; each row gives ONE lead (its first
+   meaningful link), and row text (closing date, addenda, buyer) goes into the summary and is keyword-matched.
+   Lead ids are unchanged for links with real text (link|text); generic-link rows are keyed on the link only.
+   Not yet checked against the live bid pages (that session's sandbox could not reach them): after the next
+   daily run, compare `kept` for `pages` in source_health with before, and look for noisy row leads.
 4. Legistar: fix or drop chicago / cityofsacramento; prove the filter on one known matter.
 5. Australian state portals (QTenders QLD, Tenders WA, SA Tenders, ACT, NT, Tas): check for official RSS or
    public list pages; most are JavaScript or login, so likely email alerts only.
@@ -59,5 +63,5 @@ Run workflow has two optional inputs for one-off SAM checks: `sam_days_back` (up
    overlaps with Legistar and Civic IQ signals.
 
 ## Tests
-`python -m pytest -q` (14 tests, fixtures in `tests/`). Add a test with every fix. The workflow runs the tests
+`python -m pytest -q` (17 tests, fixtures in `tests/`). Add a test with every fix. The workflow runs the tests
 before collecting, so a failing test stops the daily run.

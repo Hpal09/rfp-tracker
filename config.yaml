@@ -121,8 +121,9 @@ sources:
   # Each entry: {name: ..., url: ...}. robots.txt is checked before every fetch.
   rss: []
 
-  # Public bid pages of target buyers (page watching). Each link on the page whose
-  # text matches our keywords becomes a lead, once (state/seen.json remembers it).
+  # Public bid pages of target buyers (page watching). Each table row / list item with a
+  # link (or a lone link) whose text matches our keywords becomes a lead, once (state/seen.json
+  # remembers it). Row text is used when the link only says "View" or "Details".
   # robots.txt is checked before every fetch. Public pages only: never a login portal
   # (Bonfire, BidNet, TenderLink, OpenGov, VendorPanel buyer portals etc.).
   # Each entry: {name: ..., url: ..., region: ...}
