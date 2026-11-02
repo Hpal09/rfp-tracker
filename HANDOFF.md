@@ -40,7 +40,11 @@ Run workflow has two optional inputs for one-off SAM checks: `sam_days_back` (up
 `sam_title`. Each uses SAM calls from the daily ~10.
 
 ## Open items, in priority order
-1. Target buyer list: take the buyers from the project file `claude/rfp-test-list-data.csv` (45 past tenders,
+1. DONE 2 Nov (first pass): 7 test-list buyers' own bids pages are watched (UALR, Tri-C, Merced CCD, EKU,
+   Washington County MN, East Pilbara, Bellingen) plus Western Springs and Planetizen RFPs. The first live run caught
+   the Western Springs wayfinding RFQ. Collector coverage of the 45 test-list rows: 10 federal (SAM.gov) + 3 NZ (GETS)
+   + 7 buyer pages = 20 of 45. The rest sit on login portals (OpenGov, Bonfire, BidNet, IonWave, PlanetBids, Public
+   Purchase, Jaggaer, state portals): email alerts and Civic IQ cover those. Next idea: take more buyers from the project file `claude/rfp-test-list-data.csv` (45 past tenders,
    not in this repo; ask Mark) and add each buyer's public bids page to `sources.pages` (or its bids RSS, e.g.
    CivicPlus `/RSS.aspx`, to `sources.rss`). Check robots.txt; skip login portals. Then measure: how many of the
    45 buyers are now watched.
