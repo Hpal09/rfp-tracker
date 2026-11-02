@@ -65,7 +65,7 @@
    "wayfinding"
   ],
   "first_seen": "2026-11-02",
-  "new_today": true
+  "new_today": false
  },
  "page-e5db55f16c3ed867": {
   "id": "page-e5db55f16c3ed867",
@@ -82,7 +82,7 @@
    "wayfinding"
   ],
   "first_seen": "2026-11-02",
-  "new_today": true
+  "new_today": false
  },
  "page-0b3de1125ed35a89": {
   "id": "page-0b3de1125ed35a89",
@@ -100,7 +100,7 @@
    "virtual campus"
   ],
   "first_seen": "2026-11-02",
-  "new_today": true
+  "new_today": false
  },
  "page-58a09a4897389dc0": {
   "id": "page-58a09a4897389dc0",
@@ -116,6 +116,40 @@
   "matched": [
    "wayfinding",
    "signage design"
+  ],
+  "first_seen": "2026-11-02",
+  "new_today": false
+ },
+ "page-b37f18d52cc3513c": {
+  "id": "page-b37f18d52cc3513c",
+  "source": "page",
+  "kind": "tender",
+  "title": "745-26-900-PS",
+  "buyer": "GETS (NZ) current tenders",
+  "region": "New Zealand",
+  "url": "https://www.gets.govt.nz/AT/ExternalTenderDetails.htm?id=35356533",
+  "posted": "",
+  "closing": "",
+  "summary": "35356533 745-26-900-PS 745-26-900-PS - Advance notice Update - Wayfinding Signage Supplier (WSSP) Panel NOI 5:00 PM 6 Nov 2026 (Pacific/Auckland UTC+13:00) Auckland Transport | Link on GETS (NZ) current tenders page https://www.gets.govt.nz/ExternalIndex.htm?page=1&orderBy=date",
+  "matched": [
+   "wayfinding"
+  ],
+  "first_seen": "2026-11-02",
+  "new_today": true
+ },
+ "page-b1f3ec0472a29616": {
+  "id": "page-b1f3ec0472a29616",
+  "source": "page",
+  "kind": "tender",
+  "title": "Grow Manukau Health Park - Electronic Wayfinding and Pathfinding Solution",
+  "buyer": "GETS (NZ) current tenders",
+  "region": "New Zealand",
+  "url": "https://www.gets.govt.nz/HEALTHNZ/ExternalTenderDetails.htm?id=35365145",
+  "posted": "",
+  "closing": "",
+  "summary": "35365145 [None] Grow Manukau Health Park - Electronic Wayfinding and Pathfinding Solution RFP 12:00 PM 27 Nov 2026 (Pacific/Auckland UTC+13:00) Health New Zealand (Te Whatu Ora) | Link on GETS (NZ) current tenders page https://www.gets.govt.nz/ExternalIndex.htm?page=1&orderBy=date",
+  "matched": [
+   "wayfinding"
   ],
   "first_seen": "2026-11-02",
   "new_today": true
