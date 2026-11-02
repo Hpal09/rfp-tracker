@@ -56,12 +56,15 @@ Run workflow has two optional inputs for one-off SAM checks: `sam_days_back` (up
    Lead ids are unchanged for links with real text (link|text); generic-link rows are keyed on the link only.
    Not yet checked against the live bid pages (that session's sandbox could not reach them): after the next
    daily run, compare `kept` for `pages` in source_health with before, and look for noisy row leads.
-4. Legistar: fix or drop chicago / cityofsacramento; prove the filter on one known matter.
+4. DONE 2 Nov: Sacramento's API client is `sacramento` (fixed); Chicago is not on the Legistar API under any name
+   (dropped). Live run: 19 of 19 councils OK. Filter proven on real matters: `wayfinding` since 2021 returns Denver
+   22-1188 (Selbert Perkins, DIA wayfinding on-call), Austin 25-1873 (interactive wayfinding kiosks), San Jose
+   CC 23-119; match is case-insensitive. Regression test uses those real rows. 0 hits in a 14-day window is normal.
 5. Australian state portals (QTenders QLD, Tenders WA, SA Tenders, ACT, NT, Tas): check for official RSS or
    public list pages; most are JavaScript or login, so likely email alerts only.
 6. Optional: biglocalnews `civic-scraper` (CivicPlus/Granicus/etc. agendas, MIT) for pre-RFP council signals;
    overlaps with Legistar and Civic IQ signals.
 
 ## Tests
-`python -m pytest -q` (17 tests, fixtures in `tests/`). Add a test with every fix. The workflow runs the tests
+`python -m pytest -q` (20 tests, fixtures in `tests/`). Add a test with every fix. The workflow runs the tests
 before collecting, so a failing test stops the daily run.

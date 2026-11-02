@@ -114,7 +114,10 @@ sources:
     enabled: true
     days_back: 14
     terms: [wayfinding, campus map, virtual tour, signage master plan, interactive map]
-    clients: [seattle, chicago, denver, phoenix, sanantonio, austintexas, fortworthgov, boston, sfgov, oakland, longbeach, sanjose, cityofsacramento, pittsburgh, milwaukee, columbus, nashville, kansascity, minneapolismn, stpaul]
+    # Client names are the webapi.legistar.com ones (not always the <name>.legistar.com site).
+    # Sacramento's is "sacramento". Chicago is not on the Legistar API (HTTP 500 "not set up" for
+    # every name tried, Nov 2026), so it is left out.
+    clients: [seattle, denver, phoenix, sanantonio, austintexas, fortworthgov, boston, sfgov, oakland, longbeach, sanjose, sacramento, pittsburgh, milwaukee, columbus, nashville, kansascity, minneapolismn, stpaul]
 
   # RSS feeds: bid-page feeds of target buyers (e.g. CivicPlus "Bids" RSS),
   # Google Alerts RSS (when switched from email), Talkwalker Alerts.

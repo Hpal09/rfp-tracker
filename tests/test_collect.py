@@ -189,6 +189,33 @@ def test_legistar_reports_failed_councils():
         c.src_legistar(FnHttp(lambda u, p: http_error(500)), cfg, TODAY)
 
 
+def test_legistar_real_matters_become_leads():
+    # Two real matters the live API returned for substringof('wayfinding',MatterTitle), Nov 2026.
+    rows = {
+        "austintexas": [{"MatterId": 26498, "MatterGuid": "AEBD68A1-6A21-42A6-B0BD-0E054A7CAF44", "MatterFile": "25-1873",
+                         "MatterStatusName": "Agenda Ready", "MatterIntroDate": "2025-08-26T00:00:00",
+                         "MatterTitle": "Briefing update on the Digital Kiosk program intended to provide digital, interactive wayfinding devices on City public rights-of-way. [Anthony Segura, Interim Director - Economic Development Department]."}],
+        "denver": [{"MatterId": 22255, "MatterGuid": "A5F06D7C-C51F-4F6D-97DE-D4EA37F6EBBB", "MatterFile": "22-1188",
+                    "MatterStatusName": "Adopted", "MatterIntroDate": "2022-09-20T00:00:00",
+                    "MatterTitle": "A resolution approving a proposed On-Call Contract between the City and County of Denver and Selbert Perkins Design, Inc, concerning wayfinding design services at Denver International Airport.\r\nApproves an on-call contract with Selbert Perkins Design, Inc for $750,000 and 3 years to provide wayfinding design services for Denver International Airport in Council District 11 (202263638)."}],
+    }
+    def fn(url, params):
+        client = url.split("/v1/")[1].split("/")[0]
+        return rows[client] if "'wayfinding'" in params["$filter"] else []
+    cfg = {**CFG, "sources": {"legistar": {**CFG["sources"]["legistar"], "clients": ["austintexas", "denver"]}}}
+    found, health = c.run(cfg, TODAY, http=FnHttp(fn), fetchers={"legistar": c.src_legistar})
+    assert health[0]["status"] == "OK" and health[0]["kept"] == 2
+    urls = {it["url"] for it in found}
+    assert "https://austintexas.legistar.com/LegislationDetail.aspx?ID=26498&GUID=AEBD68A1-6A21-42A6-B0BD-0E054A7CAF44" in urls
+    assert all("wayfinding" in it["matched"] for it in found)
+
+
+def test_legistar_client_names():
+    clients = CFG["sources"]["legistar"]["clients"]
+    assert "sacramento" in clients
+    assert "cityofsacramento" not in clients and "chicago" not in clients   # both HTTP 500 on the API
+
+
 def test_sam_long_lookback_split_into_years(monkeypatch):
     monkeypatch.setenv("SAM_API_KEY", "k")
     monkeypatch.setenv("SAM_DAYS_BACK", "700")
