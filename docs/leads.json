@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-02T04:12:55+00:00",
+  "generated_at": "2026-11-03T01:32:24+00:00",
   "about": "Leads only. Each item must be verified on the buyer's official page before it is treated as a tender.",
   "source_health": [
     {
       "source": "sam_gov",
       "status": "OK",
-      "items": 665,
+      "items": 1080,
       "kept": 1,
-      "note": "1 calls, 850 notices posted, 185 award/other skipped"
+      "note": "2 calls, 1363 notices posted, 283 award/other skipped"
     },
     {
       "source": "grants_gov",
@@ -28,7 +28,7 @@
       "status": "OK",
       "items": 0,
       "kept": 0,
-      "note": "18 councils OK; failed: chicago (HTTP 500), cityofsacramento (HTTP 500)"
+      "note": "19 councils OK"
     },
     {
       "source": "rss",
@@ -40,7 +40,7 @@
     {
       "source": "pages",
       "status": "OK",
-      "items": 1544,
+      "items": 1557,
       "kept": 5,
       "note": "10 pages OK"
     },
@@ -53,10 +53,44 @@
     }
   ],
   "counts": {
-    "published": 5,
+    "published": 7,
     "new_today": 2
   },
   "leads": [
+    {
+      "id": "sam_gov-74a01a5fad5f91e0",
+      "source": "sam_gov",
+      "kind": "tender",
+      "title": "Wayfinding Signage System",
+      "buyer": "STATE, DEPARTMENT OF.STATE, DEPARTMENT OF.US EMBASSY VIENNA",
+      "region": "USA (federal)",
+      "url": "https://sam.gov/opp/556fff2a74a24be49aa019d845bef416/view",
+      "posted": "2026-11-02",
+      "closing": "2026-12-03",
+      "summary": "Solicitation; sol. 19AU9027Q0002; NAICS 339950; PSC 9905; set-aside none",
+      "matched": [
+        "wayfinding"
+      ],
+      "first_seen": "2026-11-03",
+      "new_today": true
+    },
+    {
+      "id": "page-dda33d49c9641dbe",
+      "source": "page",
+      "kind": "tender",
+      "title": "745-26-900-PS - Advance notice Update - Wayfinding Signage Supplier (WSSP) Panel",
+      "buyer": "GETS (NZ) current tenders",
+      "region": "New Zealand",
+      "url": "https://www.gets.govt.nz/AT/ExternalTenderDetails.htm?id=35356533",
+      "posted": "",
+      "closing": "",
+      "summary": "35356533 745-26-900-PS 745-26-900-PS - Advance notice Update - Wayfinding Signage Supplier (WSSP) Panel NOI 5:00 PM 6 Nov 2026 (Pacific/Auckland UTC+13:00) Auckland Transport | Link on GETS (NZ) current tenders page https://www.gets.govt.nz/ExternalIndex.htm?page=1&orderBy=date",
+      "matched": [
+        "wayfinding"
+      ],
+      "first_seen": "2026-11-03",
+      "new_today": true
+    },
     {
       "id": "sam_gov-d1537eb7844945b5",
       "source": "sam_gov",
@@ -142,7 +176,7 @@
         "wayfinding"
       ],
       "first_seen": "2026-11-02",
-      "new_today": true
+      "new_today": false
     }
   ]
 }
