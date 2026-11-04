@@ -118,7 +118,7 @@
    "wayfinding"
   ],
   "first_seen": "2026-11-03",
-  "new_today": true
+  "new_today": false
  },
  "page-dda33d49c9641dbe": {
   "id": "page-dda33d49c9641dbe",
@@ -135,6 +135,6 @@
    "wayfinding"
   ],
   "first_seen": "2026-11-03",
-  "new_today": true
+  "new_today": false
  }
 }
