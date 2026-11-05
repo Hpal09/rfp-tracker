@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-03T23:57:39+00:00",
+  "generated_at": "2026-11-05T00:20:47+00:00",
   "about": "Leads only. Each item must be verified on the buyer's official page before it is treated as a tender.",
   "source_health": [
     {
       "source": "sam_gov",
       "status": "OK",
-      "items": 1806,
-      "kept": 1,
-      "note": "3 calls, 2374 notices posted, 568 award/other skipped"
+      "items": 2417,
+      "kept": 3,
+      "note": "4 calls, 3366 notices posted, 949 award/other skipped"
     },
     {
       "source": "grants_gov",
@@ -40,7 +40,7 @@
     {
       "source": "pages",
       "status": "OK",
-      "items": 1555,
+      "items": 1561,
       "kept": 5,
       "note": "10 pages OK"
     },
@@ -53,10 +53,45 @@
     }
   ],
   "counts": {
-    "published": 7,
-    "new_today": 0
+    "published": 9,
+    "new_today": 2
   },
   "leads": [
+    {
+      "id": "sam_gov-e330900345323e1f",
+      "source": "sam_gov",
+      "kind": "forecast",
+      "title": "U.S. Coast Guard Augmented Reality and Virtual Reality Training Devices",
+      "buyer": "HOMELAND SECURITY, DEPARTMENT OF.US COAST GUARD.CG-AIR-COCO-1",
+      "region": "USA (federal)",
+      "url": "https://sam.gov/opp/d11021cb4fc14020b5eff9532adb071f/view",
+      "posted": "2026-11-04",
+      "closing": "2026-11-23",
+      "summary": "Sources Sought; sol. 70ZA0127AIRC12001; NAICS 541511; PSC 6910; set-aside none",
+      "matched": [
+        "augmented reality",
+        "virtual reality"
+      ],
+      "first_seen": "2026-11-05",
+      "new_today": true
+    },
+    {
+      "id": "sam_gov-ed4cfe42e09d13f8",
+      "source": "sam_gov",
+      "kind": "forecast",
+      "title": "Augmented Reality Software and Support Services",
+      "buyer": "DEPT OF DEFENSE.DEPT OF THE ARMY.AMC.ACC.ACC-CTRS.ACC-APG.W6QK ACC-APG",
+      "region": "USA (federal)",
+      "url": "https://sam.gov/opp/009941e4ea9e4b1588976bedeb1323ee/view",
+      "posted": "2026-11-04",
+      "closing": "2026-11-16",
+      "summary": "Special Notice; sol. W91CRB-27-X-ARC4; NAICS 541512; PSC DA01; set-aside No Set aside used",
+      "matched": [
+        "augmented reality"
+      ],
+      "first_seen": "2026-11-05",
+      "new_today": true
+    },
     {
       "id": "sam_gov-74a01a5fad5f91e0",
       "source": "sam_gov",

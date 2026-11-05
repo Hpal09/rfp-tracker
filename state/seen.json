@@ -136,5 +136,40 @@
   ],
   "first_seen": "2026-11-03",
   "new_today": false
+ },
+ "sam_gov-e330900345323e1f": {
+  "id": "sam_gov-e330900345323e1f",
+  "source": "sam_gov",
+  "kind": "forecast",
+  "title": "U.S. Coast Guard Augmented Reality and Virtual Reality Training Devices",
+  "buyer": "HOMELAND SECURITY, DEPARTMENT OF.US COAST GUARD.CG-AIR-COCO-1",
+  "region": "USA (federal)",
+  "url": "https://sam.gov/opp/d11021cb4fc14020b5eff9532adb071f/view",
+  "posted": "2026-11-04",
+  "closing": "2026-11-23",
+  "summary": "Sources Sought; sol. 70ZA0127AIRC12001; NAICS 541511; PSC 6910; set-aside none",
+  "matched": [
+   "augmented reality",
+   "virtual reality"
+  ],
+  "first_seen": "2026-11-05",
+  "new_today": true
+ },
+ "sam_gov-ed4cfe42e09d13f8": {
+  "id": "sam_gov-ed4cfe42e09d13f8",
+  "source": "sam_gov",
+  "kind": "forecast",
+  "title": "Augmented Reality Software and Support Services",
+  "buyer": "DEPT OF DEFENSE.DEPT OF THE ARMY.AMC.ACC.ACC-CTRS.ACC-APG.W6QK ACC-APG",
+  "region": "USA (federal)",
+  "url": "https://sam.gov/opp/009941e4ea9e4b1588976bedeb1323ee/view",
+  "posted": "2026-11-04",
+  "closing": "2026-11-16",
+  "summary": "Special Notice; sol. W91CRB-27-X-ARC4; NAICS 541512; PSC DA01; set-aside No Set aside used",
+  "matched": [
+   "augmented reality"
+  ],
+  "first_seen": "2026-11-05",
+  "new_today": true
  }
 }
