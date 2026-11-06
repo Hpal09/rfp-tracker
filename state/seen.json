@@ -153,7 +153,7 @@
    "virtual reality"
   ],
   "first_seen": "2026-11-05",
-  "new_today": true
+  "new_today": false
  },
  "sam_gov-ed4cfe42e09d13f8": {
   "id": "sam_gov-ed4cfe42e09d13f8",
@@ -170,6 +170,6 @@
    "augmented reality"
   ],
   "first_seen": "2026-11-05",
-  "new_today": true
+  "new_today": false
  }
 }

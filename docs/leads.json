@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-11-05T00:20:47+00:00",
+  "generated_at": "2026-11-06T00:10:14+00:00",
   "about": "Leads only. Each item must be verified on the buyer's official page before it is treated as a tender.",
   "source_health": [
     {
       "source": "sam_gov",
       "status": "OK",
-      "items": 2417,
-      "kept": 3,
-      "note": "4 calls, 3366 notices posted, 949 award/other skipped"
+      "items": 2808,
+      "kept": 2,
+      "note": "4 calls, 3766 notices posted, 958 award/other skipped"
     },
     {
       "source": "grants_gov",
       "status": "OK",
-      "items": 214,
+      "items": 212,
       "kept": 0,
       "note": ""
     },
@@ -28,7 +28,7 @@
       "status": "OK",
       "items": 0,
       "kept": 0,
-      "note": "19 councils OK"
+      "note": "18 councils OK; failed: longbeach (ConnectionError)"
     },
     {
       "source": "rss",
@@ -40,8 +40,8 @@
     {
       "source": "pages",
       "status": "OK",
-      "items": 1561,
-      "kept": 5,
+      "items": 1552,
+      "kept": 4,
       "note": "10 pages OK"
     },
     {
@@ -54,7 +54,7 @@
   ],
   "counts": {
     "published": 9,
-    "new_today": 2
+    "new_today": 0
   },
   "leads": [
     {
@@ -73,7 +73,7 @@
         "virtual reality"
       ],
       "first_seen": "2026-11-05",
-      "new_today": true
+      "new_today": false
     },
     {
       "id": "sam_gov-ed4cfe42e09d13f8",
@@ -90,7 +90,7 @@
         "augmented reality"
       ],
       "first_seen": "2026-11-05",
-      "new_today": true
+      "new_today": false
     },
     {
       "id": "sam_gov-74a01a5fad5f91e0",
