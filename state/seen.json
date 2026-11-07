@@ -171,5 +171,22 @@
   ],
   "first_seen": "2026-11-05",
   "new_today": false
+ },
+ "sam_gov-b9f1dd86897e5443": {
+  "id": "sam_gov-b9f1dd86897e5443",
+  "source": "sam_gov",
+  "kind": "forecast",
+  "title": "W91237-27-X-1CVG Sources Sought for Architect-Engineer Indefinite Delivery Contract in Support of Geospatial Services for USACE Great Lakes and Ohio River Division",
+  "buyer": "DEPT OF DEFENSE.DEPT OF THE ARMY.US ARMY CORPS OF ENGINEERS.ENGINEER DIVISION GREAT LAKES AND OHIO.ENDIST HUNTINGTON.W072 ENDIST HUNTINGTON",
+  "region": "USA (federal)",
+  "url": "https://sam.gov/opp/250efbef249441a19cec9e4607a05bd9/view",
+  "posted": "2026-11-06",
+  "closing": "2026-11-13",
+  "summary": "Sources Sought; sol. W9123727X1CVG; NAICS 541370; PSC C219; set-aside none",
+  "matched": [
+   "code:541370"
+  ],
+  "first_seen": "2026-11-07",
+  "new_today": true
  }
 }
