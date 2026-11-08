@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-07T22:41:30+00:00",
+  "generated_at": "2026-11-08T22:51:20+00:00",
   "about": "Leads only. Each item must be verified on the buyer's official page before it is treated as a tender.",
   "source_health": [
     {
       "source": "sam_gov",
       "status": "OK",
-      "items": 3422,
-      "kept": 3,
-      "note": "5 calls, 4252 notices posted, 830 award/other skipped"
+      "items": 2772,
+      "kept": 1,
+      "note": "4 calls, 3211 notices posted, 439 award/other skipped"
     },
     {
       "source": "grants_gov",
@@ -28,7 +28,7 @@
       "status": "OK",
       "items": 0,
       "kept": 0,
-      "note": "19 councils OK"
+      "note": "17 councils OK; failed: austintexas (ConnectionError), fortworthgov (ConnectionError)"
     },
     {
       "source": "rss",
@@ -40,9 +40,9 @@
     {
       "source": "pages",
       "status": "OK",
-      "items": 1495,
-      "kept": 3,
-      "note": "8 pages OK; failed: Washington County MN (ConnectTimeout), Village of Western Springs (ConnectTimeout)"
+      "items": 1557,
+      "kept": 4,
+      "note": "10 pages OK"
     },
     {
       "source": "austender",
@@ -54,7 +54,7 @@
   ],
   "counts": {
     "published": 10,
-    "new_today": 1
+    "new_today": 0
   },
   "leads": [
     {
@@ -72,7 +72,7 @@
         "code:541370"
       ],
       "first_seen": "2026-11-07",
-      "new_today": true
+      "new_today": false
     },
     {
       "id": "sam_gov-e330900345323e1f",
