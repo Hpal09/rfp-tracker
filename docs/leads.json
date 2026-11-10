@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-08T22:51:20+00:00",
+  "generated_at": "2026-11-10T02:01:57+00:00",
   "about": "Leads only. Each item must be verified on the buyer's official page before it is treated as a tender.",
   "source_health": [
     {
       "source": "sam_gov",
       "status": "OK",
-      "items": 2772,
-      "kept": 1,
-      "note": "4 calls, 3211 notices posted, 439 award/other skipped"
+      "items": 965,
+      "kept": 0,
+      "note": "2 calls, 1368 notices posted, 403 award/other skipped"
     },
     {
       "source": "grants_gov",
@@ -28,7 +28,7 @@
       "status": "OK",
       "items": 0,
       "kept": 0,
-      "note": "17 councils OK; failed: austintexas (ConnectionError), fortworthgov (ConnectionError)"
+      "note": "19 councils OK"
     },
     {
       "source": "rss",
@@ -40,7 +40,7 @@
     {
       "source": "pages",
       "status": "OK",
-      "items": 1557,
+      "items": 1561,
       "kept": 4,
       "note": "10 pages OK"
     },
