@@ -188,5 +188,56 @@
   ],
   "first_seen": "2026-11-07",
   "new_today": false
+ },
+ "sam_gov-a562f367b582838c": {
+  "id": "sam_gov-a562f367b582838c",
+  "source": "sam_gov",
+  "kind": "forecast",
+  "title": "6530--FY27 Building 1 Activation Wayfinding and Signage FSS Only",
+  "buyer": "VETERANS AFFAIRS, DEPARTMENT OF.VETERANS AFFAIRS, DEPARTMENT OF.248-NETWORK CONTRACT OFFICE 8 (36C248)",
+  "region": "USA (federal)",
+  "url": "https://sam.gov/opp/d98a5dbe7c0f4c1cb3de72bef3aeedb0/view",
+  "posted": "2026-11-10",
+  "closing": "2026-11-16",
+  "summary": "Sources Sought; sol. 36C24827Q0125; NAICS 337214; PSC 6530; set-aside Service-Disabled Veteran-Owned Small Business (SDVOSB) Set-Aside (FAR 19.14)",
+  "matched": [
+   "wayfinding"
+  ],
+  "first_seen": "2026-11-11",
+  "new_today": true
+ },
+ "sam_gov-964a3637d4e2f224": {
+  "id": "sam_gov-964a3637d4e2f224",
+  "source": "sam_gov",
+  "kind": "tender",
+  "title": "Boundary Flagging for Okmulgee & Miami Agency",
+  "buyer": "INTERIOR, DEPARTMENT OF THE.BUREAU OF INDIAN AFFAIRS.EASTERN OKLAHOMA REGION",
+  "region": "USA (federal)",
+  "url": "https://sam.gov/opp/b103797a263c420eabb71ccad780941d/view",
+  "posted": "2026-11-10",
+  "closing": "2026-11-27",
+  "summary": "Combined Synopsis/Solicitation; sol. 140A0827Q0009; NAICS 541370; PSC R404; set-aside Indian Small Business Economic Enterprise",
+  "matched": [
+   "code:541370"
+  ],
+  "first_seen": "2026-11-11",
+  "new_today": true
+ },
+ "sam_gov-4597e1d0fae62985": {
+  "id": "sam_gov-4597e1d0fae62985",
+  "source": "sam_gov",
+  "kind": "forecast",
+  "title": "T--Sources Sought IA-NEAL SMITH NWR EXHIBITS",
+  "buyer": "INTERIOR, DEPARTMENT OF THE.DEPARTMENTAL OFFICES.FWS CONTRACTING ACTIVITY",
+  "region": "USA (federal)",
+  "url": "https://sam.gov/opp/1e6c9d0d99ae4c0680aa765a1c7c38e1/view",
+  "posted": "2026-11-10",
+  "closing": "2026-11-19",
+  "summary": "Sources Sought; sol. 140FF027Q0074; NAICS 541430; PSC T001; set-aside none",
+  "matched": [
+   "code:541430"
+  ],
+  "first_seen": "2026-11-11",
+  "new_today": true
  }
 }
