@@ -204,7 +204,7 @@
    "wayfinding"
   ],
   "first_seen": "2026-11-11",
-  "new_today": true
+  "new_today": false
  },
  "sam_gov-964a3637d4e2f224": {
   "id": "sam_gov-964a3637d4e2f224",
@@ -221,7 +221,7 @@
    "code:541370"
   ],
   "first_seen": "2026-11-11",
-  "new_today": true
+  "new_today": false
  },
  "sam_gov-4597e1d0fae62985": {
   "id": "sam_gov-4597e1d0fae62985",
@@ -238,6 +238,6 @@
    "code:541430"
   ],
   "first_seen": "2026-11-11",
-  "new_today": true
+  "new_today": false
  }
 }

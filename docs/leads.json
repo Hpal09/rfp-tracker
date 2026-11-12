@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-11T00:00:01+00:00",
+  "generated_at": "2026-11-12T01:29:28+00:00",
   "about": "Leads only. Each item must be verified on the buyer's official page before it is treated as a tender.",
   "source_health": [
     {
       "source": "sam_gov",
       "status": "OK",
-      "items": 1748,
+      "items": 1806,
       "kept": 3,
-      "note": "3 calls, 2519 notices posted, 769 award/other skipped"
+      "note": "3 calls, 2575 notices posted, 769 award/other skipped"
     },
     {
       "source": "grants_gov",
@@ -40,7 +40,7 @@
     {
       "source": "pages",
       "status": "OK",
-      "items": 1572,
+      "items": 1568,
       "kept": 4,
       "note": "10 pages OK"
     },
@@ -54,7 +54,7 @@
   ],
   "counts": {
     "published": 13,
-    "new_today": 3
+    "new_today": 0
   },
   "leads": [
     {
@@ -72,7 +72,7 @@
         "wayfinding"
       ],
       "first_seen": "2026-11-11",
-      "new_today": true
+      "new_today": false
     },
     {
       "id": "sam_gov-964a3637d4e2f224",
@@ -89,7 +89,7 @@
         "code:541370"
       ],
       "first_seen": "2026-11-11",
-      "new_today": true
+      "new_today": false
     },
     {
       "id": "sam_gov-4597e1d0fae62985",
@@ -106,7 +106,7 @@
         "code:541430"
       ],
       "first_seen": "2026-11-11",
-      "new_today": true
+      "new_today": false
     },
     {
       "id": "sam_gov-b9f1dd86897e5443",
