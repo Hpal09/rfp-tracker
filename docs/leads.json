@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-11-12T01:29:28+00:00",
+  "generated_at": "2026-11-13T00:15:29+00:00",
   "about": "Leads only. Each item must be verified on the buyer's official page before it is treated as a tender.",
   "source_health": [
     {
       "source": "sam_gov",
       "status": "OK",
-      "items": 1806,
-      "kept": 3,
-      "note": "3 calls, 2575 notices posted, 769 award/other skipped"
+      "items": 2502,
+      "kept": 4,
+      "note": "4 calls, 3172 notices posted, 670 award/other skipped"
     },
     {
       "source": "grants_gov",
       "status": "OK",
-      "items": 212,
+      "items": 213,
       "kept": 0,
       "note": ""
     },
@@ -40,7 +40,7 @@
     {
       "source": "pages",
       "status": "OK",
-      "items": 1568,
+      "items": 1567,
       "kept": 4,
       "note": "10 pages OK"
     },
@@ -53,10 +53,27 @@
     }
   ],
   "counts": {
-    "published": 13,
-    "new_today": 0
+    "published": 14,
+    "new_today": 1
   },
   "leads": [
+    {
+      "id": "sam_gov-5f81c503300c621d",
+      "source": "sam_gov",
+      "kind": "forecast",
+      "title": "Notice of Intent to Sole Source to gCaptain",
+      "buyer": "COMMERCE, DEPARTMENT OF.NATIONAL OCEANIC AND ATMOSPHERIC ADMINISTRATION.DEPT OF COMMERCE NOAA",
+      "region": "USA (federal)",
+      "url": "https://sam.gov/opp/ed46a3cd00044a7f9a8a8af0cd98135a/view",
+      "posted": "2026-11-12",
+      "closing": "2026-11-27",
+      "summary": "Presolicitation; sol. 1333MK27Q0006; NAICS 516210; PSC T099; set-aside Small Business Set Aside - Total",
+      "matched": [
+        "code:T099"
+      ],
+      "first_seen": "2026-11-13",
+      "new_today": true
+    },
     {
       "id": "sam_gov-a562f367b582838c",
       "source": "sam_gov",

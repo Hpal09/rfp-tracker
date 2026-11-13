@@ -239,5 +239,22 @@
   ],
   "first_seen": "2026-11-11",
   "new_today": false
+ },
+ "sam_gov-5f81c503300c621d": {
+  "id": "sam_gov-5f81c503300c621d",
+  "source": "sam_gov",
+  "kind": "forecast",
+  "title": "Notice of Intent to Sole Source to gCaptain",
+  "buyer": "COMMERCE, DEPARTMENT OF.NATIONAL OCEANIC AND ATMOSPHERIC ADMINISTRATION.DEPT OF COMMERCE NOAA",
+  "region": "USA (federal)",
+  "url": "https://sam.gov/opp/ed46a3cd00044a7f9a8a8af0cd98135a/view",
+  "posted": "2026-11-12",
+  "closing": "2026-11-27",
+  "summary": "Presolicitation; sol. 1333MK27Q0006; NAICS 516210; PSC T099; set-aside Small Business Set Aside - Total",
+  "matched": [
+   "code:T099"
+  ],
+  "first_seen": "2026-11-13",
+  "new_today": true
  }
 }
