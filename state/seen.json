@@ -256,5 +256,39 @@
   ],
   "first_seen": "2026-11-13",
   "new_today": false
+ },
+ "sam_gov-6768ab88a2a6a999": {
+  "id": "sam_gov-6768ab88a2a6a999",
+  "source": "sam_gov",
+  "kind": "forecast",
+  "title": "Limited Source Delivery Order for Unmanned Aircraft System (UAS) Intelligence, Surveillance and Reconnaissance (ISR) Services under existing Basic Ordering Agreements \u2013 Order 5",
+  "buyer": "DEPT OF DEFENSE.DEPT OF THE NAVY.NAVAIR.NAVAIR HQS.NAVAL AIR SYSTEMS COMMAND",
+  "region": "USA (federal)",
+  "url": "https://sam.gov/opp/8eccf1a97d444e758bb238c12157b83f/view",
+  "posted": "2026-11-16",
+  "closing": "2026-12-01",
+  "summary": "Presolicitation; sol. N00019-27-RFPREQ-WPM263-0169; NAICS 541370; PSC L015; set-aside No Set aside used",
+  "matched": [
+   "code:541370"
+  ],
+  "first_seen": "2026-11-17",
+  "new_today": true
+ },
+ "sam_gov-c9b735299d648ce9": {
+  "id": "sam_gov-c9b735299d648ce9",
+  "source": "sam_gov",
+  "kind": "tender",
+  "title": "ARROW CANYON KIOSKS DESIGN AND INSTALLATION",
+  "buyer": "INTERIOR, DEPARTMENT OF THE.DEPARTMENTAL OFFICES.BLM CONTRACTING ACTIVITY",
+  "region": "USA (federal)",
+  "url": "https://sam.gov/opp/88d68e1bdff741bfa8cdee6ea0b3ceca/view",
+  "posted": "2026-11-16",
+  "closing": "2026-12-01",
+  "summary": "Solicitation; sol. 140LL027Q0032; NAICS 541430; PSC 9905; set-aside Small Business Set Aside - Total",
+  "matched": [
+   "code:541430"
+  ],
+  "first_seen": "2026-11-17",
+  "new_today": true
  }
 }

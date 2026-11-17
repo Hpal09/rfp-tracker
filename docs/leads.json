@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-15T23:22:33+00:00",
+  "generated_at": "2026-11-17T02:27:00+00:00",
   "about": "Leads only. Each item must be verified on the buyer's official page before it is treated as a tender.",
   "source_health": [
     {
       "source": "sam_gov",
-      "status": "FAILED",
-      "items": 0,
-      "kept": 0,
-      "note": "SAM.gov ReadTimeout"
+      "status": "OK",
+      "items": 1674,
+      "kept": 2,
+      "note": "2 calls, 1903 notices posted, 229 award/other skipped"
     },
     {
       "source": "grants_gov",
@@ -40,9 +40,9 @@
     {
       "source": "pages",
       "status": "OK",
-      "items": 1561,
+      "items": 1519,
       "kept": 4,
-      "note": "10 pages OK"
+      "note": "9 pages OK; failed: Eastern Kentucky University (SSLError)"
     },
     {
       "source": "austender",
@@ -54,9 +54,43 @@
   ],
   "counts": {
     "published": 12,
-    "new_today": 0
+    "new_today": 2
   },
   "leads": [
+    {
+      "id": "sam_gov-6768ab88a2a6a999",
+      "source": "sam_gov",
+      "kind": "forecast",
+      "title": "Limited Source Delivery Order for Unmanned Aircraft System (UAS) Intelligence, Surveillance and Reconnaissance (ISR) Services under existing Basic Ordering Agreements \u2013 Order 5",
+      "buyer": "DEPT OF DEFENSE.DEPT OF THE NAVY.NAVAIR.NAVAIR HQS.NAVAL AIR SYSTEMS COMMAND",
+      "region": "USA (federal)",
+      "url": "https://sam.gov/opp/8eccf1a97d444e758bb238c12157b83f/view",
+      "posted": "2026-11-16",
+      "closing": "2026-12-01",
+      "summary": "Presolicitation; sol. N00019-27-RFPREQ-WPM263-0169; NAICS 541370; PSC L015; set-aside No Set aside used",
+      "matched": [
+        "code:541370"
+      ],
+      "first_seen": "2026-11-17",
+      "new_today": true
+    },
+    {
+      "id": "sam_gov-c9b735299d648ce9",
+      "source": "sam_gov",
+      "kind": "tender",
+      "title": "ARROW CANYON KIOSKS DESIGN AND INSTALLATION",
+      "buyer": "INTERIOR, DEPARTMENT OF THE.DEPARTMENTAL OFFICES.BLM CONTRACTING ACTIVITY",
+      "region": "USA (federal)",
+      "url": "https://sam.gov/opp/88d68e1bdff741bfa8cdee6ea0b3ceca/view",
+      "posted": "2026-11-16",
+      "closing": "2026-12-01",
+      "summary": "Solicitation; sol. 140LL027Q0032; NAICS 541430; PSC 9905; set-aside Small Business Set Aside - Total",
+      "matched": [
+        "code:541430"
+      ],
+      "first_seen": "2026-11-17",
+      "new_today": true
+    },
     {
       "id": "sam_gov-5f81c503300c621d",
       "source": "sam_gov",
@@ -72,23 +106,6 @@
         "code:T099"
       ],
       "first_seen": "2026-11-13",
-      "new_today": false
-    },
-    {
-      "id": "sam_gov-a562f367b582838c",
-      "source": "sam_gov",
-      "kind": "forecast",
-      "title": "6530--FY27 Building 1 Activation Wayfinding and Signage FSS Only",
-      "buyer": "VETERANS AFFAIRS, DEPARTMENT OF.VETERANS AFFAIRS, DEPARTMENT OF.248-NETWORK CONTRACT OFFICE 8 (36C248)",
-      "region": "USA (federal)",
-      "url": "https://sam.gov/opp/d98a5dbe7c0f4c1cb3de72bef3aeedb0/view",
-      "posted": "2026-11-10",
-      "closing": "2026-11-16",
-      "summary": "Sources Sought; sol. 36C24827Q0125; NAICS 337214; PSC 6530; set-aside Service-Disabled Veteran-Owned Small Business (SDVOSB) Set-Aside (FAR 19.14)",
-      "matched": [
-        "wayfinding"
-      ],
-      "first_seen": "2026-11-11",
       "new_today": false
     },
     {
@@ -139,23 +156,6 @@
       "matched": [
         "augmented reality",
         "virtual reality"
-      ],
-      "first_seen": "2026-11-05",
-      "new_today": false
-    },
-    {
-      "id": "sam_gov-ed4cfe42e09d13f8",
-      "source": "sam_gov",
-      "kind": "forecast",
-      "title": "Augmented Reality Software and Support Services",
-      "buyer": "DEPT OF DEFENSE.DEPT OF THE ARMY.AMC.ACC.ACC-CTRS.ACC-APG.W6QK ACC-APG",
-      "region": "USA (federal)",
-      "url": "https://sam.gov/opp/009941e4ea9e4b1588976bedeb1323ee/view",
-      "posted": "2026-11-04",
-      "closing": "2026-11-16",
-      "summary": "Special Notice; sol. W91CRB-27-X-ARC4; NAICS 541512; PSC DA01; set-aside No Set aside used",
-      "matched": [
-        "augmented reality"
       ],
       "first_seen": "2026-11-05",
       "new_today": false
