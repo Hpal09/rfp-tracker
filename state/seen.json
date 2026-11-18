@@ -272,7 +272,7 @@
    "code:541370"
   ],
   "first_seen": "2026-11-17",
-  "new_today": true
+  "new_today": false
  },
  "sam_gov-c9b735299d648ce9": {
   "id": "sam_gov-c9b735299d648ce9",
@@ -289,6 +289,24 @@
    "code:541430"
   ],
   "first_seen": "2026-11-17",
+  "new_today": false
+ },
+ "sam_gov-8c561e721b3c7bb5": {
+  "id": "sam_gov-8c561e721b3c7bb5",
+  "source": "sam_gov",
+  "kind": "forecast",
+  "title": "U.S. Coast Guard Augmented Reality and Virtual Reality Training Devices",
+  "buyer": "HOMELAND SECURITY, DEPARTMENT OF.US COAST GUARD.CG-AIR-COCO-1",
+  "region": "USA (federal)",
+  "url": "https://sam.gov/opp/24385e2bbac84107a4c65cdde49ce41a/view",
+  "posted": "2026-11-17",
+  "closing": "2026-11-23",
+  "summary": "Sources Sought; sol. 70ZA0127AIRC12001; NAICS 541511; PSC 6910; set-aside none",
+  "matched": [
+   "augmented reality",
+   "virtual reality"
+  ],
+  "first_seen": "2026-11-18",
   "new_today": true
  }
 }

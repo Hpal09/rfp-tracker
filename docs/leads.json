@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-17T02:27:00+00:00",
+  "generated_at": "2026-11-18T01:35:51+00:00",
   "about": "Leads only. Each item must be verified on the buyer's official page before it is treated as a tender.",
   "source_health": [
     {
       "source": "sam_gov",
       "status": "OK",
-      "items": 1674,
-      "kept": 2,
-      "note": "2 calls, 1903 notices posted, 229 award/other skipped"
+      "items": 3118,
+      "kept": 3,
+      "note": "4 calls, 3691 notices posted, 573 award/other skipped"
     },
     {
       "source": "grants_gov",
@@ -40,9 +40,9 @@
     {
       "source": "pages",
       "status": "OK",
-      "items": 1519,
+      "items": 1557,
       "kept": 4,
-      "note": "9 pages OK; failed: Eastern Kentucky University (SSLError)"
+      "note": "10 pages OK"
     },
     {
       "source": "austender",
@@ -53,10 +53,28 @@
     }
   ],
   "counts": {
-    "published": 12,
-    "new_today": 2
+    "published": 13,
+    "new_today": 1
   },
   "leads": [
+    {
+      "id": "sam_gov-8c561e721b3c7bb5",
+      "source": "sam_gov",
+      "kind": "forecast",
+      "title": "U.S. Coast Guard Augmented Reality and Virtual Reality Training Devices",
+      "buyer": "HOMELAND SECURITY, DEPARTMENT OF.US COAST GUARD.CG-AIR-COCO-1",
+      "region": "USA (federal)",
+      "url": "https://sam.gov/opp/24385e2bbac84107a4c65cdde49ce41a/view",
+      "posted": "2026-11-17",
+      "closing": "2026-11-23",
+      "summary": "Sources Sought; sol. 70ZA0127AIRC12001; NAICS 541511; PSC 6910; set-aside none",
+      "matched": [
+        "augmented reality",
+        "virtual reality"
+      ],
+      "first_seen": "2026-11-18",
+      "new_today": true
+    },
     {
       "id": "sam_gov-6768ab88a2a6a999",
       "source": "sam_gov",
@@ -72,7 +90,7 @@
         "code:541370"
       ],
       "first_seen": "2026-11-17",
-      "new_today": true
+      "new_today": false
     },
     {
       "id": "sam_gov-c9b735299d648ce9",
@@ -89,7 +107,7 @@
         "code:541430"
       ],
       "first_seen": "2026-11-17",
-      "new_today": true
+      "new_today": false
     },
     {
       "id": "sam_gov-5f81c503300c621d",
