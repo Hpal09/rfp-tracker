@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-19T01:08:30+00:00",
+  "generated_at": "2026-11-20T01:14:19+00:00",
   "about": "Leads only. Each item must be verified on the buyer's official page before it is treated as a tender.",
   "source_health": [
     {
       "source": "sam_gov",
       "status": "OK",
-      "items": 3503,
-      "kept": 3,
-      "note": "5 calls, 4474 notices posted, 971 award/other skipped"
+      "items": 3434,
+      "kept": 2,
+      "note": "5 calls, 4483 notices posted, 1049 award/other skipped"
     },
     {
       "source": "grants_gov",
@@ -40,7 +40,7 @@
     {
       "source": "pages",
       "status": "OK",
-      "items": 1546,
+      "items": 1549,
       "kept": 4,
       "note": "10 pages OK"
     },
@@ -54,9 +54,26 @@
   ],
   "counts": {
     "published": 13,
-    "new_today": 0
+    "new_today": 1
   },
   "leads": [
+    {
+      "id": "sam_gov-861584e3c8794337",
+      "source": "sam_gov",
+      "kind": "forecast",
+      "title": "W9127827RA004",
+      "buyer": "DEPT OF DEFENSE.DEPT OF THE ARMY.US ARMY CORPS OF ENGINEERS.ENGINEER DIVISION SOUTH ATLANTIC.ENDIST MOBILE.W074 ENDIST MOBILE",
+      "region": "USA (federal)",
+      "url": "https://sam.gov/opp/ffbf25cc0c724775b4a6fa730dd12de3/view",
+      "posted": "2026-11-19",
+      "closing": "2026-12-14",
+      "summary": "Sources Sought; sol. W9127827RA004; NAICS 541370; PSC T009; set-aside none",
+      "matched": [
+        "code:541370"
+      ],
+      "first_seen": "2026-11-20",
+      "new_today": true
+    },
     {
       "id": "sam_gov-8c561e721b3c7bb5",
       "source": "sam_gov",
@@ -139,23 +156,6 @@
       "summary": "Combined Synopsis/Solicitation; sol. 140A0827Q0009; NAICS 541370; PSC R404; set-aside Indian Small Business Economic Enterprise",
       "matched": [
         "code:541370"
-      ],
-      "first_seen": "2026-11-11",
-      "new_today": false
-    },
-    {
-      "id": "sam_gov-4597e1d0fae62985",
-      "source": "sam_gov",
-      "kind": "forecast",
-      "title": "T--Sources Sought IA-NEAL SMITH NWR EXHIBITS",
-      "buyer": "INTERIOR, DEPARTMENT OF THE.DEPARTMENTAL OFFICES.FWS CONTRACTING ACTIVITY",
-      "region": "USA (federal)",
-      "url": "https://sam.gov/opp/1e6c9d0d99ae4c0680aa765a1c7c38e1/view",
-      "posted": "2026-11-10",
-      "closing": "2026-11-19",
-      "summary": "Sources Sought; sol. 140FF027Q0074; NAICS 541430; PSC T001; set-aside none",
-      "matched": [
-        "code:541430"
       ],
       "first_seen": "2026-11-11",
       "new_today": false

@@ -308,5 +308,22 @@
   ],
   "first_seen": "2026-11-18",
   "new_today": false
+ },
+ "sam_gov-861584e3c8794337": {
+  "id": "sam_gov-861584e3c8794337",
+  "source": "sam_gov",
+  "kind": "forecast",
+  "title": "W9127827RA004",
+  "buyer": "DEPT OF DEFENSE.DEPT OF THE ARMY.US ARMY CORPS OF ENGINEERS.ENGINEER DIVISION SOUTH ATLANTIC.ENDIST MOBILE.W074 ENDIST MOBILE",
+  "region": "USA (federal)",
+  "url": "https://sam.gov/opp/ffbf25cc0c724775b4a6fa730dd12de3/view",
+  "posted": "2026-11-19",
+  "closing": "2026-12-14",
+  "summary": "Sources Sought; sol. W9127827RA004; NAICS 541370; PSC T009; set-aside none",
+  "matched": [
+   "code:541370"
+  ],
+  "first_seen": "2026-11-20",
+  "new_today": true
  }
 }
