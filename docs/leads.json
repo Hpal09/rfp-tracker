@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-11-21T00:47:00+00:00",
+  "generated_at": "2026-11-21T23:46:52+00:00",
   "about": "Leads only. Each item must be verified on the buyer's official page before it is treated as a tender.",
   "source_health": [
     {
       "source": "sam_gov",
       "status": "OK",
-      "items": 2841,
+      "items": 2948,
       "kept": 6,
-      "note": "4 calls, 3673 notices posted, 832 award/other skipped"
+      "note": "4 calls, 3813 notices posted, 865 award/other skipped"
     },
     {
       "source": "grants_gov",
       "status": "OK",
-      "items": 212,
+      "items": 211,
       "kept": 0,
       "note": ""
     },
@@ -54,7 +54,7 @@
   ],
   "counts": {
     "published": 18,
-    "new_today": 5
+    "new_today": 0
   },
   "leads": [
     {
@@ -72,7 +72,7 @@
         "code:541370"
       ],
       "first_seen": "2026-11-21",
-      "new_today": true
+      "new_today": false
     },
     {
       "id": "sam_gov-deb1088b4edc9c59",
@@ -89,7 +89,7 @@
         "wayfinding"
       ],
       "first_seen": "2026-11-21",
-      "new_today": true
+      "new_today": false
     },
     {
       "id": "sam_gov-0f4f35527cdeee2c",
@@ -106,7 +106,7 @@
         "code:541370"
       ],
       "first_seen": "2026-11-21",
-      "new_today": true
+      "new_today": false
     },
     {
       "id": "sam_gov-4f875b23c877d0b9",
@@ -123,7 +123,7 @@
         "code:T099"
       ],
       "first_seen": "2026-11-21",
-      "new_today": true
+      "new_today": false
     },
     {
       "id": "sam_gov-f3d9b4b448d80921",
@@ -141,7 +141,7 @@
         "code:T099"
       ],
       "first_seen": "2026-11-21",
-      "new_today": true
+      "new_today": false
     },
     {
       "id": "sam_gov-861584e3c8794337",

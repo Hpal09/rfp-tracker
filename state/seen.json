@@ -341,7 +341,7 @@
    "code:541370"
   ],
   "first_seen": "2026-11-21",
-  "new_today": true
+  "new_today": false
  },
  "sam_gov-deb1088b4edc9c59": {
   "id": "sam_gov-deb1088b4edc9c59",
@@ -358,7 +358,7 @@
    "wayfinding"
   ],
   "first_seen": "2026-11-21",
-  "new_today": true
+  "new_today": false
  },
  "sam_gov-0f4f35527cdeee2c": {
   "id": "sam_gov-0f4f35527cdeee2c",
@@ -375,7 +375,7 @@
    "code:541370"
   ],
   "first_seen": "2026-11-21",
-  "new_today": true
+  "new_today": false
  },
  "sam_gov-4f875b23c877d0b9": {
   "id": "sam_gov-4f875b23c877d0b9",
@@ -392,7 +392,7 @@
    "code:T099"
   ],
   "first_seen": "2026-11-21",
-  "new_today": true
+  "new_today": false
  },
  "sam_gov-f3d9b4b448d80921": {
   "id": "sam_gov-f3d9b4b448d80921",
@@ -410,6 +410,6 @@
    "code:T099"
   ],
   "first_seen": "2026-11-21",
-  "new_today": true
+  "new_today": false
  }
 }
