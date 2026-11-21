@@ -324,6 +324,92 @@
    "code:541370"
   ],
   "first_seen": "2026-11-20",
+  "new_today": false
+ },
+ "sam_gov-bb291895de687dfc": {
+  "id": "sam_gov-bb291895de687dfc",
+  "source": "sam_gov",
+  "kind": "forecast",
+  "title": "Southwest Region 3 Professional Land Surveying Services AE",
+  "buyer": "AGRICULTURE, DEPARTMENT OF.FOREST SERVICE.USDA-FS, CSA INTERMOUNTAIN 5",
+  "region": "USA (federal)",
+  "url": "https://sam.gov/opp/834ce4cf26294b52a3ef429a57c8ca74/view",
+  "posted": "2026-11-20",
+  "closing": "2026-12-05",
+  "summary": "Presolicitation; sol. 1240LQ26R0001; NAICS 541370; PSC C219; set-aside Small Business Set Aside - Total",
+  "matched": [
+   "code:541370"
+  ],
+  "first_seen": "2026-11-21",
+  "new_today": true
+ },
+ "sam_gov-deb1088b4edc9c59": {
+  "id": "sam_gov-deb1088b4edc9c59",
+  "source": "sam_gov",
+  "kind": "tender",
+  "title": "Wayfinding Signage System",
+  "buyer": "STATE, DEPARTMENT OF.STATE, DEPARTMENT OF.US EMBASSY VIENNA",
+  "region": "USA (federal)",
+  "url": "https://sam.gov/opp/7ece73c57b3f412e92e217162c135b44/view",
+  "posted": "2026-11-20",
+  "closing": "2026-12-03",
+  "summary": "Solicitation; sol. 19AU9027Q0002; NAICS 339950; PSC 9905; set-aside none",
+  "matched": [
+   "wayfinding"
+  ],
+  "first_seen": "2026-11-21",
+  "new_today": true
+ },
+ "sam_gov-0f4f35527cdeee2c": {
+  "id": "sam_gov-0f4f35527cdeee2c",
+  "source": "sam_gov",
+  "kind": "tender",
+  "title": "USACE, FY27 POSMV Wavemaster IMU IP68",
+  "buyer": "DEPT OF DEFENSE.DEPT OF THE ARMY.US ARMY CORPS OF ENGINEERS.ENGINEER DIVISION SOUTHWESTERN.ENDIST GALVESTON.W076 ENDIST GALVESTON",
+  "region": "USA (federal)",
+  "url": "https://sam.gov/opp/7ac952fe769342e3a7fdd79c10bf6d4a/view",
+  "posted": "2026-11-20",
+  "closing": "2026-12-21",
+  "summary": "Solicitation; sol. W912HY27QA001; NAICS 541370; PSC 6635; set-aside Small Business Set Aside - Total",
+  "matched": [
+   "code:541370"
+  ],
+  "first_seen": "2026-11-21",
+  "new_today": true
+ },
+ "sam_gov-4f875b23c877d0b9": {
+  "id": "sam_gov-4f875b23c877d0b9",
+  "source": "sam_gov",
+  "kind": "tender",
+  "title": "Journal of Defense Analytics and Logistics Publishing Service BPA",
+  "buyer": "DEPT OF DEFENSE.DEPT OF THE AIR FORCE.AIR FORCE MATERIEL COMMAND.AIR FORCE LIFE CYCLE MANAGEMENT CENTER.FA8601 AFLCMC PZIO",
+  "region": "USA (federal)",
+  "url": "https://sam.gov/opp/5e121d4a4d524eaab193ecc656f406c1/view",
+  "posted": "2026-11-20",
+  "closing": "2026-12-07",
+  "summary": "Combined Synopsis/Solicitation; sol. FA860127Q0022; NAICS 513120; PSC T099; set-aside none",
+  "matched": [
+   "code:T099"
+  ],
+  "first_seen": "2026-11-21",
+  "new_today": true
+ },
+ "sam_gov-f3d9b4b448d80921": {
+  "id": "sam_gov-f3d9b4b448d80921",
+  "source": "sam_gov",
+  "kind": "forecast",
+  "title": "Visual Communications Services III (VCS III) RFI",
+  "buyer": "DEPT OF DEFENSE.NATIONAL GEOSPATIAL-INTELLIGENCE AGENCY (NGA).ATTN: MS S84 - OCS",
+  "region": "USA (federal)",
+  "url": "https://sam.gov/opp/5b903da58a1a46cda02e39d9819a174f/view",
+  "posted": "2026-11-20",
+  "closing": "2026-12-07",
+  "summary": "Presolicitation; sol. RFI_VCSIII_11202026; NAICS 541430; PSC T099; set-aside none",
+  "matched": [
+   "code:541430",
+   "code:T099"
+  ],
+  "first_seen": "2026-11-21",
   "new_today": true
  }
 }
