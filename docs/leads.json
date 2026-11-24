@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-11-23T00:15:00+00:00",
+  "generated_at": "2026-11-24T04:16:20+00:00",
   "about": "Leads only. Each item must be verified on the buyer's official page before it is treated as a tender.",
   "source_health": [
     {
       "source": "sam_gov",
       "status": "OK",
-      "items": 941,
-      "kept": 5,
-      "note": "2 calls, 1110 notices posted, 169 award/other skipped"
+      "items": 1036,
+      "kept": 1,
+      "note": "2 calls, 1421 notices posted, 385 award/other skipped"
     },
     {
       "source": "grants_gov",
       "status": "OK",
-      "items": 211,
+      "items": 212,
       "kept": 0,
       "note": ""
     },
@@ -40,9 +40,9 @@
     {
       "source": "pages",
       "status": "OK",
-      "items": 1514,
+      "items": 1519,
       "kept": 3,
-      "note": "9 pages OK; failed: GETS (NZ) current tenders (HTTP 503)"
+      "note": "10 pages OK"
     },
     {
       "source": "austender",
@@ -53,10 +53,27 @@
     }
   ],
   "counts": {
-    "published": 18,
-    "new_today": 0
+    "published": 13,
+    "new_today": 1
   },
   "leads": [
+    {
+      "id": "sam_gov-26159b87338cb3dd",
+      "source": "sam_gov",
+      "kind": "tender",
+      "title": "JB Andrews Presidential Seal Items",
+      "buyer": "DEPT OF DEFENSE.DEPT OF THE AIR FORCE.AIR FORCE DISTRICT OF WASHINGTON.FA2860 316 CONS PK",
+      "region": "USA (federal)",
+      "url": "https://sam.gov/opp/ddf1fa3e184e473b99decea91dd3da66/view",
+      "posted": "2026-11-23",
+      "closing": "2026-12-01",
+      "summary": "Combined Synopsis/Solicitation; sol. FA286027Q0004; NAICS 541430; PSC 7350; set-aside Small Business Set Aside - Total",
+      "matched": [
+        "code:541430"
+      ],
+      "first_seen": "2026-11-24",
+      "new_today": true
+    },
     {
       "id": "sam_gov-bb291895de687dfc",
       "source": "sam_gov",
@@ -161,24 +178,6 @@
       "new_today": false
     },
     {
-      "id": "sam_gov-8c561e721b3c7bb5",
-      "source": "sam_gov",
-      "kind": "forecast",
-      "title": "U.S. Coast Guard Augmented Reality and Virtual Reality Training Devices",
-      "buyer": "HOMELAND SECURITY, DEPARTMENT OF.US COAST GUARD.CG-AIR-COCO-1",
-      "region": "USA (federal)",
-      "url": "https://sam.gov/opp/24385e2bbac84107a4c65cdde49ce41a/view",
-      "posted": "2026-11-17",
-      "closing": "2026-11-23",
-      "summary": "Sources Sought; sol. 70ZA0127AIRC12001; NAICS 541511; PSC 6910; set-aside none",
-      "matched": [
-        "augmented reality",
-        "virtual reality"
-      ],
-      "first_seen": "2026-11-18",
-      "new_today": false
-    },
-    {
       "id": "sam_gov-6768ab88a2a6a999",
       "source": "sam_gov",
       "kind": "forecast",
@@ -247,24 +246,6 @@
       "new_today": false
     },
     {
-      "id": "sam_gov-e330900345323e1f",
-      "source": "sam_gov",
-      "kind": "forecast",
-      "title": "U.S. Coast Guard Augmented Reality and Virtual Reality Training Devices",
-      "buyer": "HOMELAND SECURITY, DEPARTMENT OF.US COAST GUARD.CG-AIR-COCO-1",
-      "region": "USA (federal)",
-      "url": "https://sam.gov/opp/d11021cb4fc14020b5eff9532adb071f/view",
-      "posted": "2026-11-04",
-      "closing": "2026-11-23",
-      "summary": "Sources Sought; sol. 70ZA0127AIRC12001; NAICS 541511; PSC 6910; set-aside none",
-      "matched": [
-        "augmented reality",
-        "virtual reality"
-      ],
-      "first_seen": "2026-11-05",
-      "new_today": false
-    },
-    {
       "id": "sam_gov-74a01a5fad5f91e0",
       "source": "sam_gov",
       "kind": "tender",
@@ -296,76 +277,6 @@
         "wayfinding"
       ],
       "first_seen": "2026-11-03",
-      "new_today": false
-    },
-    {
-      "id": "page-29ced63b8ef80d9c",
-      "source": "page",
-      "kind": "tender",
-      "title": "Request for Qualifications Wayfinding Signage Project",
-      "buyer": "Village of Western Springs",
-      "region": "USA (IL)",
-      "url": "https://www.wsprings.com/bids.aspx?bidID=157",
-      "posted": "",
-      "closing": "",
-      "summary": "Link on Village of Western Springs page https://www.wsprings.com/bids.aspx",
-      "matched": [
-        "wayfinding"
-      ],
-      "first_seen": "2026-11-02",
-      "new_today": false
-    },
-    {
-      "id": "page-0b3de1125ed35a89",
-      "source": "page",
-      "kind": "tender",
-      "title": "FB-26-016 RFP Solicitation",
-      "buyer": "University of Arkansas at Little Rock",
-      "region": "USA (AR)",
-      "url": "https://ualr.edu/procurement/wp-content/uploads/sites/238/2026/03/FB-26-016-SaaS-Virtual-Campus-Tours-and-Interactive-Map-Platform.docx-2.pdf",
-      "posted": "",
-      "closing": "",
-      "summary": "April 6, 2026 @ 4:00 p.m. CST FB-26-016 RFP SaaS Virtual Campus Tours and Interactive Map Platform FB-26-016 RFP Solicitation FB-26-016 RFP Technical Response Packet FB-26-016 RFP Financial Proposal Packet FB-26-016 RFP Q&A FB-26-016 RFP Intent to Award Awarded - Beyond Media Digital | Link on University of Arkansas at Little Rock page https://ualr.edu/procurement/bids",
-      "matched": [
-        "interactive map",
-        "virtual campus"
-      ],
-      "first_seen": "2026-11-02",
-      "new_today": false
-    },
-    {
-      "id": "page-58a09a4897389dc0",
-      "source": "page",
-      "kind": "tender",
-      "title": "Project C20251144 Project #C20251144",
-      "buyer": "Cuyahoga Community College (Tri-C)",
-      "region": "USA (OH)",
-      "url": "https://www.tri-c.edu/administrative-departments/procurement/documents/1144-rfq-cw-wayfinding-102025.pdf",
-      "posted": "",
-      "closing": "",
-      "summary": "Oct. 27, 2025 REQUEST FOR PROFESSIONAL DESIGN SERVICES Collegewide Interior and Exterior Wayfinding Signage Design and Planning Services Project #C20251144 - click to view Multiple Campuses Cleveland, Ohio Nov. 12, 2025 @ noon | Link on Cuyahoga Community College (Tri-C) page https://www.tri-c.edu/administrative-departments/procurement/current-opportunitiesawards.html",
-      "matched": [
-        "wayfinding",
-        "signage design"
-      ],
-      "first_seen": "2026-11-02",
-      "new_today": false
-    },
-    {
-      "id": "page-b1f3ec0472a29616",
-      "source": "page",
-      "kind": "tender",
-      "title": "Grow Manukau Health Park - Electronic Wayfinding and Pathfinding Solution",
-      "buyer": "GETS (NZ) current tenders",
-      "region": "New Zealand",
-      "url": "https://www.gets.govt.nz/HEALTHNZ/ExternalTenderDetails.htm?id=35365145",
-      "posted": "",
-      "closing": "",
-      "summary": "35365145 [None] Grow Manukau Health Park - Electronic Wayfinding and Pathfinding Solution RFP 12:00 PM 27 Nov 2026 (Pacific/Auckland UTC+13:00) Health New Zealand (Te Whatu Ora) | Link on GETS (NZ) current tenders page https://www.gets.govt.nz/ExternalIndex.htm?page=1&orderBy=date",
-      "matched": [
-        "wayfinding"
-      ],
-      "first_seen": "2026-11-02",
       "new_today": false
     }
   ]
