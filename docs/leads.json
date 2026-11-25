@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-24T04:16:20+00:00",
+  "generated_at": "2026-11-25T03:01:40+00:00",
   "about": "Leads only. Each item must be verified on the buyer's official page before it is treated as a tender.",
   "source_health": [
     {
       "source": "sam_gov",
       "status": "OK",
-      "items": 1036,
-      "kept": 1,
-      "note": "2 calls, 1421 notices posted, 385 award/other skipped"
+      "items": 1802,
+      "kept": 4,
+      "note": "3 calls, 2453 notices posted, 651 award/other skipped"
     },
     {
       "source": "grants_gov",
@@ -40,7 +40,7 @@
     {
       "source": "pages",
       "status": "OK",
-      "items": 1519,
+      "items": 1515,
       "kept": 3,
       "note": "10 pages OK"
     },
@@ -53,10 +53,61 @@
     }
   ],
   "counts": {
-    "published": 13,
-    "new_today": 1
+    "published": 14,
+    "new_today": 3
   },
   "leads": [
+    {
+      "id": "sam_gov-30e4a2d99e3954f9",
+      "source": "sam_gov",
+      "kind": "tender",
+      "title": "Immersive Virtual Reality (VR) Training System - MSTC",
+      "buyer": "JUSTICE, DEPARTMENT OF.FEDERAL PRISON SYSTEM / BUREAU OF PRISONS.FAO",
+      "region": "USA (federal)",
+      "url": "https://sam.gov/opp/a4bc28a52f334af3a43c315b06b0ccef/view",
+      "posted": "2026-11-24",
+      "closing": "2026-12-10",
+      "summary": "Combined Synopsis/Solicitation; sol. 15BGCS26Q80000001; NAICS 333310; PSC 6910; set-aside Small Business Set Aside - Total",
+      "matched": [
+        "virtual reality"
+      ],
+      "first_seen": "2026-11-25",
+      "new_today": true
+    },
+    {
+      "id": "sam_gov-e7de3d4085750074",
+      "source": "sam_gov",
+      "kind": "forecast",
+      "title": "9905--Equipment - Main Lobby Wayfinding Signage - Source Sought Notice",
+      "buyer": "VETERANS AFFAIRS, DEPARTMENT OF.VETERANS AFFAIRS, DEPARTMENT OF.242-NETWORK CONTRACT OFFICE 02 (36C242)",
+      "region": "USA (federal)",
+      "url": "https://sam.gov/opp/59299a668f444ea5925f2a9f72806c5e/view",
+      "posted": "2026-11-24",
+      "closing": "2026-12-10",
+      "summary": "Sources Sought; sol. 36C24227Q0161; NAICS 339950; PSC 9905; set-aside none",
+      "matched": [
+        "wayfinding"
+      ],
+      "first_seen": "2026-11-25",
+      "new_today": true
+    },
+    {
+      "id": "sam_gov-3b8d9a2134b672d9",
+      "source": "sam_gov",
+      "kind": "tender",
+      "title": "R--Boundary Flagging for Okmulgee & Miami Agency",
+      "buyer": "INTERIOR, DEPARTMENT OF THE.BUREAU OF INDIAN AFFAIRS.EASTERN OKLAHOMA REGION",
+      "region": "USA (federal)",
+      "url": "https://sam.gov/opp/50d9fb7e64ee4fa2843527f2666d055a/view",
+      "posted": "2026-11-24",
+      "closing": "2026-12-04",
+      "summary": "Combined Synopsis/Solicitation; sol. 140A0827Q0009; NAICS 541370; PSC R404; set-aside Indian Small Business Economic Enterprise",
+      "matched": [
+        "code:541370"
+      ],
+      "first_seen": "2026-11-25",
+      "new_today": true
+    },
     {
       "id": "sam_gov-26159b87338cb3dd",
       "source": "sam_gov",
@@ -72,7 +123,7 @@
         "code:541430"
       ],
       "first_seen": "2026-11-24",
-      "new_today": true
+      "new_today": false
     },
     {
       "id": "sam_gov-bb291895de687dfc",
@@ -243,40 +294,6 @@
         "code:541370"
       ],
       "first_seen": "2026-11-11",
-      "new_today": false
-    },
-    {
-      "id": "sam_gov-74a01a5fad5f91e0",
-      "source": "sam_gov",
-      "kind": "tender",
-      "title": "Wayfinding Signage System",
-      "buyer": "STATE, DEPARTMENT OF.STATE, DEPARTMENT OF.US EMBASSY VIENNA",
-      "region": "USA (federal)",
-      "url": "https://sam.gov/opp/556fff2a74a24be49aa019d845bef416/view",
-      "posted": "2026-11-02",
-      "closing": "2026-12-03",
-      "summary": "Solicitation; sol. 19AU9027Q0002; NAICS 339950; PSC 9905; set-aside none",
-      "matched": [
-        "wayfinding"
-      ],
-      "first_seen": "2026-11-03",
-      "new_today": false
-    },
-    {
-      "id": "page-dda33d49c9641dbe",
-      "source": "page",
-      "kind": "tender",
-      "title": "745-26-900-PS - Advance notice Update - Wayfinding Signage Supplier (WSSP) Panel",
-      "buyer": "GETS (NZ) current tenders",
-      "region": "New Zealand",
-      "url": "https://www.gets.govt.nz/AT/ExternalTenderDetails.htm?id=35356533",
-      "posted": "",
-      "closing": "",
-      "summary": "35356533 745-26-900-PS 745-26-900-PS - Advance notice Update - Wayfinding Signage Supplier (WSSP) Panel NOI 5:00 PM 6 Nov 2026 (Pacific/Auckland UTC+13:00) Auckland Transport | Link on GETS (NZ) current tenders page https://www.gets.govt.nz/ExternalIndex.htm?page=1&orderBy=date",
-      "matched": [
-        "wayfinding"
-      ],
-      "first_seen": "2026-11-03",
       "new_today": false
     }
   ]

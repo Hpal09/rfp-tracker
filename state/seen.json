@@ -427,6 +427,57 @@
    "code:541430"
   ],
   "first_seen": "2026-11-24",
+  "new_today": false
+ },
+ "sam_gov-30e4a2d99e3954f9": {
+  "id": "sam_gov-30e4a2d99e3954f9",
+  "source": "sam_gov",
+  "kind": "tender",
+  "title": "Immersive Virtual Reality (VR) Training System - MSTC",
+  "buyer": "JUSTICE, DEPARTMENT OF.FEDERAL PRISON SYSTEM / BUREAU OF PRISONS.FAO",
+  "region": "USA (federal)",
+  "url": "https://sam.gov/opp/a4bc28a52f334af3a43c315b06b0ccef/view",
+  "posted": "2026-11-24",
+  "closing": "2026-12-10",
+  "summary": "Combined Synopsis/Solicitation; sol. 15BGCS26Q80000001; NAICS 333310; PSC 6910; set-aside Small Business Set Aside - Total",
+  "matched": [
+   "virtual reality"
+  ],
+  "first_seen": "2026-11-25",
+  "new_today": true
+ },
+ "sam_gov-e7de3d4085750074": {
+  "id": "sam_gov-e7de3d4085750074",
+  "source": "sam_gov",
+  "kind": "forecast",
+  "title": "9905--Equipment - Main Lobby Wayfinding Signage - Source Sought Notice",
+  "buyer": "VETERANS AFFAIRS, DEPARTMENT OF.VETERANS AFFAIRS, DEPARTMENT OF.242-NETWORK CONTRACT OFFICE 02 (36C242)",
+  "region": "USA (federal)",
+  "url": "https://sam.gov/opp/59299a668f444ea5925f2a9f72806c5e/view",
+  "posted": "2026-11-24",
+  "closing": "2026-12-10",
+  "summary": "Sources Sought; sol. 36C24227Q0161; NAICS 339950; PSC 9905; set-aside none",
+  "matched": [
+   "wayfinding"
+  ],
+  "first_seen": "2026-11-25",
+  "new_today": true
+ },
+ "sam_gov-3b8d9a2134b672d9": {
+  "id": "sam_gov-3b8d9a2134b672d9",
+  "source": "sam_gov",
+  "kind": "tender",
+  "title": "R--Boundary Flagging for Okmulgee & Miami Agency",
+  "buyer": "INTERIOR, DEPARTMENT OF THE.BUREAU OF INDIAN AFFAIRS.EASTERN OKLAHOMA REGION",
+  "region": "USA (federal)",
+  "url": "https://sam.gov/opp/50d9fb7e64ee4fa2843527f2666d055a/view",
+  "posted": "2026-11-24",
+  "closing": "2026-12-04",
+  "summary": "Combined Synopsis/Solicitation; sol. 140A0827Q0009; NAICS 541370; PSC R404; set-aside Indian Small Business Economic Enterprise",
+  "matched": [
+   "code:541370"
+  ],
+  "first_seen": "2026-11-25",
   "new_today": true
  }
 }
