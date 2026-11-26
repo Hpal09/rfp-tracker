@@ -444,7 +444,7 @@
    "virtual reality"
   ],
   "first_seen": "2026-11-25",
-  "new_today": true
+  "new_today": false
  },
  "sam_gov-e7de3d4085750074": {
   "id": "sam_gov-e7de3d4085750074",
@@ -461,7 +461,7 @@
    "wayfinding"
   ],
   "first_seen": "2026-11-25",
-  "new_today": true
+  "new_today": false
  },
  "sam_gov-3b8d9a2134b672d9": {
   "id": "sam_gov-3b8d9a2134b672d9",
@@ -478,6 +478,40 @@
    "code:541370"
   ],
   "first_seen": "2026-11-25",
+  "new_today": false
+ },
+ "sam_gov-50a262a042ccabde": {
+  "id": "sam_gov-50a262a042ccabde",
+  "source": "sam_gov",
+  "kind": "tender",
+  "title": "99--ARROW CANYON KIOSKS DESIGN AND INSTALLATION",
+  "buyer": "INTERIOR, DEPARTMENT OF THE.DEPARTMENTAL OFFICES.BLM CONTRACTING ACTIVITY",
+  "region": "USA (federal)",
+  "url": "https://sam.gov/opp/55915f18eea9437998951d8809413d75/view",
+  "posted": "2026-11-25",
+  "closing": "2026-11-25",
+  "summary": "Solicitation; sol. 140LL027Q0032; NAICS 541430; PSC 9905; set-aside Small Business Set Aside - Total",
+  "matched": [
+   "code:541430"
+  ],
+  "first_seen": "2026-11-26",
+  "new_today": true
+ },
+ "sam_gov-d1819043bfe0ed43": {
+  "id": "sam_gov-d1819043bfe0ed43",
+  "source": "sam_gov",
+  "kind": "tender",
+  "title": "JB Andrews Presidential Seal Items",
+  "buyer": "DEPT OF DEFENSE.DEPT OF THE AIR FORCE.AIR FORCE DISTRICT OF WASHINGTON.FA2860 316 CONS PK",
+  "region": "USA (federal)",
+  "url": "https://sam.gov/opp/200fb189d19d4442bb5d15103acf360c/view",
+  "posted": "2026-11-25",
+  "closing": "2026-12-15",
+  "summary": "Combined Synopsis/Solicitation; sol. FA286027Q0004; NAICS 541430; PSC 7350; set-aside Small Business Set Aside - Total",
+  "matched": [
+   "code:541430"
+  ],
+  "first_seen": "2026-11-26",
   "new_today": true
  }
 }

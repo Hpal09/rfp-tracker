@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-25T03:01:40+00:00",
+  "generated_at": "2026-11-26T02:10:00+00:00",
   "about": "Leads only. Each item must be verified on the buyer's official page before it is treated as a tender.",
   "source_health": [
     {
       "source": "sam_gov",
       "status": "OK",
-      "items": 1802,
-      "kept": 4,
-      "note": "3 calls, 2453 notices posted, 651 award/other skipped"
+      "items": 2342,
+      "kept": 5,
+      "note": "4 calls, 3116 notices posted, 774 award/other skipped"
     },
     {
       "source": "grants_gov",
@@ -40,7 +40,7 @@
     {
       "source": "pages",
       "status": "OK",
-      "items": 1515,
+      "items": 1509,
       "kept": 3,
       "note": "10 pages OK"
     },
@@ -53,10 +53,27 @@
     }
   ],
   "counts": {
-    "published": 14,
-    "new_today": 3
+    "published": 15,
+    "new_today": 1
   },
   "leads": [
+    {
+      "id": "sam_gov-d1819043bfe0ed43",
+      "source": "sam_gov",
+      "kind": "tender",
+      "title": "JB Andrews Presidential Seal Items",
+      "buyer": "DEPT OF DEFENSE.DEPT OF THE AIR FORCE.AIR FORCE DISTRICT OF WASHINGTON.FA2860 316 CONS PK",
+      "region": "USA (federal)",
+      "url": "https://sam.gov/opp/200fb189d19d4442bb5d15103acf360c/view",
+      "posted": "2026-11-25",
+      "closing": "2026-12-15",
+      "summary": "Combined Synopsis/Solicitation; sol. FA286027Q0004; NAICS 541430; PSC 7350; set-aside Small Business Set Aside - Total",
+      "matched": [
+        "code:541430"
+      ],
+      "first_seen": "2026-11-26",
+      "new_today": true
+    },
     {
       "id": "sam_gov-30e4a2d99e3954f9",
       "source": "sam_gov",
@@ -72,7 +89,7 @@
         "virtual reality"
       ],
       "first_seen": "2026-11-25",
-      "new_today": true
+      "new_today": false
     },
     {
       "id": "sam_gov-e7de3d4085750074",
@@ -89,7 +106,7 @@
         "wayfinding"
       ],
       "first_seen": "2026-11-25",
-      "new_today": true
+      "new_today": false
     },
     {
       "id": "sam_gov-3b8d9a2134b672d9",
@@ -106,7 +123,7 @@
         "code:541370"
       ],
       "first_seen": "2026-11-25",
-      "new_today": true
+      "new_today": false
     },
     {
       "id": "sam_gov-26159b87338cb3dd",
