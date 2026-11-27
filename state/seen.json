@@ -495,7 +495,7 @@
    "code:541430"
   ],
   "first_seen": "2026-11-26",
-  "new_today": true
+  "new_today": false
  },
  "sam_gov-d1819043bfe0ed43": {
   "id": "sam_gov-d1819043bfe0ed43",
@@ -512,6 +512,6 @@
    "code:541430"
   ],
   "first_seen": "2026-11-26",
-  "new_today": true
+  "new_today": false
  }
 }
