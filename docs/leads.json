@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-27T02:08:47+00:00",
+  "generated_at": "2026-11-28T01:55:49+00:00",
   "about": "Leads only. Each item must be verified on the buyer's official page before it is treated as a tender.",
   "source_health": [
     {
       "source": "sam_gov",
       "status": "OK",
-      "items": 2069,
-      "kept": 5,
-      "note": "3 calls, 2501 notices posted, 432 award/other skipped"
+      "items": 1322,
+      "kept": 2,
+      "note": "2 calls, 1486 notices posted, 164 award/other skipped"
     },
     {
       "source": "grants_gov",
@@ -40,7 +40,7 @@
     {
       "source": "pages",
       "status": "OK",
-      "items": 1497,
+      "items": 1492,
       "kept": 2,
       "note": "10 pages OK"
     },
@@ -53,7 +53,7 @@
     }
   ],
   "counts": {
-    "published": 15,
+    "published": 13,
     "new_today": 0
   },
   "leads": [
@@ -277,40 +277,6 @@
         "code:541430"
       ],
       "first_seen": "2026-11-17",
-      "new_today": false
-    },
-    {
-      "id": "sam_gov-5f81c503300c621d",
-      "source": "sam_gov",
-      "kind": "forecast",
-      "title": "Notice of Intent to Sole Source to gCaptain",
-      "buyer": "COMMERCE, DEPARTMENT OF.NATIONAL OCEANIC AND ATMOSPHERIC ADMINISTRATION.DEPT OF COMMERCE NOAA",
-      "region": "USA (federal)",
-      "url": "https://sam.gov/opp/ed46a3cd00044a7f9a8a8af0cd98135a/view",
-      "posted": "2026-11-12",
-      "closing": "2026-11-27",
-      "summary": "Presolicitation; sol. 1333MK27Q0006; NAICS 516210; PSC T099; set-aside Small Business Set Aside - Total",
-      "matched": [
-        "code:T099"
-      ],
-      "first_seen": "2026-11-13",
-      "new_today": false
-    },
-    {
-      "id": "sam_gov-964a3637d4e2f224",
-      "source": "sam_gov",
-      "kind": "tender",
-      "title": "Boundary Flagging for Okmulgee & Miami Agency",
-      "buyer": "INTERIOR, DEPARTMENT OF THE.BUREAU OF INDIAN AFFAIRS.EASTERN OKLAHOMA REGION",
-      "region": "USA (federal)",
-      "url": "https://sam.gov/opp/b103797a263c420eabb71ccad780941d/view",
-      "posted": "2026-11-10",
-      "closing": "2026-11-27",
-      "summary": "Combined Synopsis/Solicitation; sol. 140A0827Q0009; NAICS 541370; PSC R404; set-aside Indian Small Business Economic Enterprise",
-      "matched": [
-        "code:541370"
-      ],
-      "first_seen": "2026-11-11",
       "new_today": false
     }
   ]
